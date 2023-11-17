@@ -155,3 +155,10 @@ nav a:active,
 nav a:focus {
     background: var(--accent-color);
 }
+.dark-theme {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #9b59b6;
+    --text-color: #ecf0f1;
+    --background-color: #34495e;
+}
