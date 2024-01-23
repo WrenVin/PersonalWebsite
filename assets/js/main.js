@@ -4,6 +4,16 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+function updateMailtoLink() {
+	var body = document.getElementById('message').value;
+	var name = document.getElementById('name').value;
+    var mailtoLink = document.getElementById('emailLink');
+	mailtoLink.href = 'mailto:wrenvin@gmail.com?subject=Website Message ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(body);
+	
+}
+document.getElementById('message').addEventListener('input', updateMailtoLink);
+document.getElementById('name').addEventListener('input', updateMailtoLink);
+
 (function($) {
 
 	var	$window = $(window),

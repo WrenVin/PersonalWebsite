@@ -432,26 +432,7 @@
 
 		// Events.
 			$this
-				.on('submit', function() {
-
-					$this.find('input[type=text],input[type=password],textarea')
-						.each(function(event) {
-
-							var i = $(this);
-
-							if (i.attr('name').match(/-polyfill-field$/))
-								i.attr('name', '');
-
-							if (i.val() == i.attr('placeholder')) {
-
-								i.removeClass('polyfill-placeholder');
-								i.val('');
-
-							}
-
-						});
-
-				})
+				
 				.on('reset', function(event) {
 
 					event.preventDefault();
@@ -469,7 +450,6 @@
 
 							switch (this.type) {
 
-								case 'submit':
 								case 'reset':
 									break;
 
