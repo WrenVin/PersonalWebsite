@@ -30,6 +30,8 @@ export type Project = {
   spotlight?: boolean;
   /** Project images, shown as a gallery on the project page. */
   images?: { src: string; alt: string }[];
+  /** For a single tall (portrait) image: render it beside the text, not above it. */
+  imageAside?: boolean;
   /** Tags for filtering / display. */
   tags: string[];
   /** Whether this is a primary spatial project (vs. older secondary work). */
@@ -238,6 +240,7 @@ export const projects: Project[] = [
     images: [
       { src: '/images/projects/mars-rover-path.jpg', alt: 'Cartographic map of NASA’s Perseverance rover path traced in cyan across the Jezero Crater delta on Mars, with scale bar, north arrow, and inset.' },
     ],
+    imageAside: true,
     tags: ['ArcGIS Pro', 'Cartography', 'Mars', 'Planetary'],
     featured: true,
   },
@@ -265,6 +268,7 @@ export const projects: Project[] = [
     images: [
       { src: '/images/projects/netherlands-photo-heatmap.jpg', alt: 'Heatmap of the Netherlands showing density of 13,000 geotagged photos in yellow, with two bike-tour routes overlaid as lines.' },
     ],
+    imageAside: true,
     tags: ['Kepler.gl', 'Heatmap', 'Personal Data', 'Netherlands'],
     featured: true,
   },
@@ -289,6 +293,7 @@ export const projects: Project[] = [
     images: [
       { src: '/images/projects/diemen-zuid-walkability.jpg', alt: 'Walkability map of Diemen-Zuid, Amsterdam showing 5, 10, and 15-minute walking isochrones around an apartment with grocery, cafe, and pharmacy locations.' },
     ],
+    imageAside: true,
     tags: ['ArcGIS Pro', 'Network Analysis', 'Walkability', 'OSM', 'Amsterdam'],
     featured: true,
   },

@@ -12,6 +12,8 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const hasImages = !!(project.images && project.images.length);
+// Tall (portrait) images render beside the text to cut dead vertical space.
+const asideLayout = hasImages && !!project.imageAside;
 // Show the map area only when there's an actual map source to render, so projects
 // awaiting a link (or whose deliverable isn't a web map) don't show an empty slot.
 // Images take precedence over a live map when both exist.
@@ -36,43 +38,75 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
         </ul>
       </header>
 
-      {hasImages && (
-        <div class={`gallery${project.images!.length === 1 ? " gallery-single" : ""}`}>
-          {project.images!.map((img) => (
-            <img src={img.src} alt={img.alt} loading="lazy" />
-          ))}
+      {asideLayout ? (
+        <div class="split">
+          <div class="split-media">
+            {project.images!.map((img) => (
+              <img src={img.src} alt={img.alt} loading="lazy" />
+            ))}
+          </div>
+          <div class="split-text">
+            <p>{project.description}</p>
+            <h2>Highlights</h2>
+            <ul class="highlights">
+              {project.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+            {project.stat && (
+              <div class="stat-inline">
+                <span class="siv">{project.stat.value}</span>
+                <span class="sil">{project.stat.label}</span>
+              </div>
+            )}
+            {project.link && (
+              <p class="ext">
+                <a href={project.link.href} target="_blank" rel="noopener" class="button">
+                  {project.link.label} ↗
+                </a>
+              </p>
+            )}
+          </div>
         </div>
-      )}
-
-      {showMap && (
-        <div class="map-wrap">
-          <MapEmbed webmapId={project.webmapId} src={project.mapEmbed} mapLink={project.mapLink} title={project.title} />
-        </div>
-      )}
-
-      <div class="body">
-        <div class="prose">
-          <p>{project.description}</p>
-          <h2>Highlights</h2>
-          <ul class="highlights">
-            {project.highlights.map((h) => <li>{h}</li>)}
-          </ul>
-          {project.link && (
-            <p class="ext">
-              <a href={project.link.href} target="_blank" rel="noopener" class="button">
-                {project.link.label} ↗
-              </a>
-            </p>
+      ) : (
+        <>
+          {hasImages && (
+            <div class={`gallery${project.images!.length === 1 ? " gallery-single" : ""}`}>
+              {project.images!.map((img) => (
+                <img src={img.src} alt={img.alt} loading="lazy" />
+              ))}
+            </div>
           )}
-        </div>
 
-        {project.stat && (
-          <aside class="stat-panel">
-            <span class="big">{project.stat.value}</span>
-            <span class="lbl">{project.stat.label}</span>
-          </aside>
-        )}
-      </div>
+          {showMap && (
+            <div class="map-wrap">
+              <MapEmbed webmapId={project.webmapId} src={project.mapEmbed} mapLink={project.mapLink} title={project.title} />
+            </div>
+          )}
+
+          <div class="body">
+            <div class="prose">
+              <p>{project.description}</p>
+              <h2>Highlights</h2>
+              <ul class="highlights">
+                {project.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+              {project.link && (
+                <p class="ext">
+                  <a href={project.link.href} target="_blank" rel="noopener" class="button">
+                    {project.link.label} ↗
+                  </a>
+                </p>
+              )}
+            </div>
+
+            {project.stat && (
+              <aside class="stat-panel">
+                <span class="big">{project.stat.value}</span>
+                <span class="lbl">{project.stat.label}</span>
+              </aside>
+            )}
+          </div>
+        </>
+      )}
     </div>
   </article>
 </Base>
@@ -140,6 +174,68 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
   }
   .map-wrap {
     margin-bottom: 3rem;
+  }
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+  }
+  .split-media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 88px;
+  }
+  .split-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+  .split-text h2 {
+    font-size: 1.25rem;
+    margin: 1.75rem 0 1rem;
+  }
+  .stat-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 1.75rem 0;
+    padding: 0.85rem 1rem;
+    background: rgba(93, 202, 165, 0.07);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .siv {
+    flex-shrink: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+  .sil {
+    padding-left: 0.85rem;
+    border-left: 1px solid var(--border-strong);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+  @media (max-width: 760px) {
+    .split {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .split-media img {
+      position: static;
+      width: auto;
+      max-width: 100%;
+      max-height: 460px;
+      margin-inline: auto;
+      display: block;
+    }
   }
   .gallery {
     display: grid;
