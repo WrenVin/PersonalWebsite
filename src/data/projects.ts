@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     slug: 'bikeshare-equity-siting',
     title: 'Equitable Bike Share Station Siting',
-    tool: 'ArcGIS Pro · Network Analyst',
+    tool: 'ArcGIS Pro',
     date: 'Spring 2026',
     summary:
       'Modeling where a future Houston bike share should place stations to balance ridership and equity.',
@@ -148,7 +148,7 @@ export const projects: Project[] = [
   {
     slug: 'campus-bike-parking',
     title: 'Campus Bike Parking Utilization Field Survey',
-    tool: 'ArcGIS Online · Field Maps',
+    tool: 'ArcGIS Online',
     date: 'Fall 2025',
     summary:
       'A field survey of 74 campus bike racks revealing where capacity is failing.',
@@ -275,7 +275,7 @@ export const projects: Project[] = [
   {
     slug: 'diemen-zuid-walkability',
     title: 'A 15-Minute Neighborhood: Diemen-Zuid',
-    tool: 'ArcGIS Pro · Network Analyst',
+    tool: 'ArcGIS Pro',
     date: 'Fall 2025',
     summary:
       'A walkability analysis of my old Amsterdam neighborhood, mapping what is reachable on foot in 5, 10, and 15 minutes.',
