@@ -32,6 +32,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'bikeshare-equity-siting',
+    title: 'Equitable Bike Share Station Siting',
+    tool: 'ArcGIS Pro · Network Analyst',
+    date: 'Spring 2026',
+    summary:
+      'Provost Undergraduate Research Scholarship work modeling where a future Houston bike share should place stations to maximize both ridership and equity.',
+    description:
+      'For the University of Houston Provost Undergraduate Research Scholarship (PURS), advised by ' +
+      'Donna Kacmar in the Hines College of Architecture, I developed a spatial methodology for ' +
+      'siting a future Houston bike share system. After Houston BCycle shut down in 2024, the work ' +
+      'asks how a new network could balance ridership density, efficiency, and the inclusion of ' +
+      'low-income and minority communities. Using ArcGIS Network Analyst location-allocation ' +
+      'against 2020 Census population, a theoretical network with the same number of stations as ' +
+      'the 2021 system reached 197,385 residents within a five-minute walk, a 2.65x increase. I ' +
+      'then built a custom equity score from ACS poverty, race and Hispanic origin, and ' +
+      'vehicle-availability data, and re-ran the allocation to weight high-need neighborhoods, ' +
+      'redistributing stations toward the East End, Third Ward, and Southeast Houston.',
+    highlights: [
+      'Modeled optimal station placement with ArcGIS Network Analyst location-allocation against 2020 Census population.',
+      'A same-size theoretical network reached 197,385 residents within a 5-minute walk, 2.65x the 2021 BCycle system.',
+      'Built a custom, population-normalized equity score from poverty, demographics, and vehicle access.',
+      'Re-ran the allocation on the equity score to redistribute stations into underserved neighborhoods.',
+    ],
+    stat: { value: '2.65×', label: 'more residents within a 5-minute walk than the 2021 BCycle network' },
+    link: { href: '/research/bikeshare-equity-siting.pdf', label: 'Read the research (PDF)' },
+    tags: ['ArcGIS Pro', 'Network Analysis', 'Equity', 'Transportation', 'Research'],
+    featured: true,
+  },
+  {
     slug: 'midtown-complete-streets',
     title: 'Midtown Houston Complete Streets Visualization',
     tool: 'ArcGIS CityEngine',

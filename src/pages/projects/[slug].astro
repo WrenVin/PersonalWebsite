@@ -11,7 +11,9 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const showMap = project.featured;
+// Show the map area only when there's an actual map source to render, so projects
+// awaiting a link (or whose deliverable isn't a web map) don't show an empty slot.
+const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
 ---
 
 <Base title={project.title} description={project.summary}>
