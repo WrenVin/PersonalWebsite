@@ -160,10 +160,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
       <ul class="lead-list">
         {leadership.map((item) => (
           <li class="lead-item">
-            <div class="lead-head">
-              <span class="lead-role">{item.role}</span>
-              <span class="lead-dates">{item.dates}</span>
-            </div>
+            <p class="lead-role">{item.role}</p>
             <p class="lead-org">{item.org}</p>
             <p class="lead-note">{item.note}</p>
             {item.link && (
@@ -171,6 +168,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
                 {item.link.label} ↗
               </a>
             )}
+            <p class="lead-dates">{item.dates}</p>
           </li>
         ))}
       </ul>
@@ -389,26 +387,25 @@ import { featuredProjects, otherProjects } from "../data/projects";
     gap: 1.2rem;
   }
   .lead-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: var(--bg-elev);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 1.4rem;
   }
-  .lead-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin-bottom: 0.2rem;
-  }
   .lead-role {
     font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.3rem;
   }
   .lead-dates {
+    margin: auto 0 0;
+    padding-top: 1rem;
     color: var(--text-faint);
     font-size: 0.82rem;
     font-family: var(--font-mono);
-    white-space: nowrap;
   }
   .lead-org {
     color: var(--accent);
@@ -421,7 +418,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
     margin: 0;
   }
   .lead-link {
-    display: inline-block;
+    align-self: flex-start;
     margin-top: 0.7rem;
     font-size: 0.86rem;
     font-weight: 500;
