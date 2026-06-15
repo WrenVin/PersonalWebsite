@@ -60,7 +60,8 @@ export const projects: Project[] = [
       'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
       'Visualized coverage gaps to surface disparities in access to frequent transit.',
     ],
-    mapEmbed: '',
+    mapEmbed:
+      'https://www.arcgis.com/apps/Embed/index.html?webmap=a930b4f766c74b2389c9002a1fa103c5&theme=dark&legend=true&zoom=true&scale=true',
     tags: ['ArcGIS Pro', 'GTFS', 'Transit', 'Equity'],
     featured: true,
   },
@@ -82,7 +83,8 @@ export const projects: Project[] = [
       'Found 71.9% of downtown land serves vehicles vs. 9.2% for pedestrians.',
     ],
     stat: { value: '71.9%', label: 'of downtown land allocated to vehicles' },
-    mapEmbed: '',
+    mapEmbed:
+      'https://www.arcgis.com/apps/Embed/index.html?webmap=5929c6f281d04567b0585d9c5c820ce1&theme=dark&legend=true&zoom=true&scale=true',
     tags: ['ArcGIS Pro', 'Land Use', 'OSM', 'Houston'],
     featured: true,
   },
