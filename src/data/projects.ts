@@ -302,15 +302,15 @@ export const projects: Project[] = [
   {
     slug: 'commute-civic-engagement',
     title: 'The Road to Campus',
-    tool: 'Python · R',
+    tool: 'Python',
     date: 'Spring 2026',
     summary:
       'A survey-based data portrait exploring whether commute burden shapes civic engagement among UH undergraduates.',
     description:
       'A Data & Society collaboration with Kaylee Gallardo investigating whether commute burden ' +
       'affects civic engagement among University of Houston undergraduates. We designed and ' +
-      'distributed an original undergraduate survey, then cleaned and analyzed responses from 41 ' +
-      'students in Python and R. I led the transportation side and built two visual “data ' +
+      'distributed an original undergraduate survey, then cleaned and analyzed the responses from ' +
+      '41 students. I led the transportation side in Python and built two visual “data ' +
       'portraits” that tell the story: “The Road to Campus,” a branching road map where students ' +
       'fork by residence and transport mode (road length encodes average commute, width encodes ' +
       'number of riders), and “Constellations of Civic Life,” a star map plotting each student by ' +
@@ -318,7 +318,7 @@ export const projects: Project[] = [
       'between commute time and civic engagement (r = 0.08), suggesting a long commute does not, ' +
       'on its own, pull students away from civic life.',
     highlights: [
-      'Designed and distributed an original undergraduate survey; cleaned and analyzed 41 responses in Python and R.',
+      'Designed and distributed an original undergraduate survey; cleaned and analyzed 41 responses in Python.',
       'Built “The Road to Campus,” a branching road-map portrait encoding commute time and ridership by transport mode.',
       'Built “Constellations of Civic Life,” mapping each student by commute time and civic-engagement index (PCA).',
       'Found no significant link between commute time and civic engagement (r = 0.08, p = 0.74).',
@@ -329,7 +329,7 @@ export const projects: Project[] = [
       { src: '/images/projects/constellations-civic-life.jpg', alt: 'Constellations of Civic Life: a star map plotting 41 UH students by commute time and civic-engagement score, colored by major and sized by year.' },
     ],
     link: { href: 'https://github.com/kay9116/HON-3350-Final-Project', label: 'View the project on GitHub' },
-    tags: ['Python', 'R', 'Data Visualization', 'Survey', 'Civic Data'],
+    tags: ['Python', 'Data Visualization', 'Survey', 'Civic Data'],
     featured: true,
   },
   {
