@@ -56,7 +56,7 @@ export const projects: Project[] = [
       'Re-ran the allocation on the equity score to redistribute stations into underserved neighborhoods.',
     ],
     stat: { value: '2.65×', label: 'more residents within a 5-minute walk than the 2021 BCycle network' },
-    link: { href: '/research/bikeshare-equity-siting.pdf', label: 'Read the research (PDF)' },
+    link: { href: '/research/bikeshare-equity-poster.pdf', label: 'View the research poster (PDF)' },
     tags: ['ArcGIS Pro', 'Network Analysis', 'Equity', 'Transportation', 'Research'],
     featured: true,
   },
@@ -229,20 +229,6 @@ export const projects: Project[] = [
     highlights: ['Automated employee hour tracking using the Google Sheets API.'],
     link: { href: 'https://github.com/WrenVin/Hour-Tracking-Web-App', label: 'View on GitHub' },
     tags: ['Web', 'Automation'],
-    featured: false,
-  },
-  {
-    slug: 'yearly-daylight-latitude',
-    title: 'Yearly Daylight Latitude',
-    tool: 'Python',
-    date: '2023',
-    summary: 'A script visualizing how daylight hours change with latitude over a year.',
-    description:
-      'A Python project that computes and visualizes how daylight hours vary by latitude across ' +
-      'the course of a year.',
-    highlights: ['Computed and visualized daylight hours by latitude over a year.'],
-    link: { href: 'https://github.com/WrenVin/Yearly_Daylight_Latitude', label: 'View on GitHub' },
-    tags: ['Python', 'Visualization'],
     featured: false,
   },
 ];
