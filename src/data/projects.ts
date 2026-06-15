@@ -11,7 +11,9 @@ export type Project = {
   highlights: string[];
   /** A headline figure to feature, if the project has one. */
   stat?: { value: string; label: string };
-  /** ArcGIS / external map share URL. Leave empty to render a placeholder. */
+  /** Public ArcGIS web map item id, rendered with the ArcGIS Maps SDK 4.x. Preferred. */
+  webmapId?: string;
+  /** Full iframe URL for StoryMaps / Experience Builder / web scenes. */
   mapEmbed?: string;
   /** External link (devpost, github, live site). */
   link?: { href: string; label: string };
@@ -60,8 +62,7 @@ export const projects: Project[] = [
       'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
       'Visualized coverage gaps to surface disparities in access to frequent transit.',
     ],
-    mapEmbed:
-      'https://www.arcgis.com/apps/Embed/index.html?webmap=a930b4f766c74b2389c9002a1fa103c5&theme=dark&legend=true&zoom=true&scale=true',
+    webmapId: 'a930b4f766c74b2389c9002a1fa103c5',
     tags: ['ArcGIS Pro', 'GTFS', 'Transit', 'Equity'],
     featured: true,
   },
@@ -83,8 +84,7 @@ export const projects: Project[] = [
       'Found 71.9% of downtown land serves vehicles vs. 9.2% for pedestrians.',
     ],
     stat: { value: '71.9%', label: 'of downtown land allocated to vehicles' },
-    mapEmbed:
-      'https://www.arcgis.com/apps/Embed/index.html?webmap=5929c6f281d04567b0585d9c5c820ce1&theme=dark&legend=true&zoom=true&scale=true',
+    webmapId: '5929c6f281d04567b0585d9c5c820ce1',
     tags: ['ArcGIS Pro', 'Land Use', 'OSM', 'Houston'],
     featured: true,
   },
