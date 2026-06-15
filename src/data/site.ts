@@ -72,16 +72,6 @@ export const experience: Experience[] = [
     ],
   },
   {
-    org: 'Gehl',
-    role: 'Field Data Collector',
-    dates: 'Oct 2024',
-    location: 'Houston, TX',
-    notes: [
-      'Collected observational data for the Downtown Houston Public Life Survey.',
-      'Documented public-space usage patterns to support the 2025 downtown redesign.',
-    ],
-  },
-  {
     org: 'Lazarus Energy',
     role: 'IT Intern',
     dates: 'Oct 2023 – Jan 2025',
@@ -121,6 +111,12 @@ export type Leadership = {
 };
 
 export const leadership: Leadership[] = [
+  {
+    org: 'No Higher No Wider I-10',
+    role: 'Website Manager',
+    dates: 'Feb 2024 – Present',
+    note: 'Build and maintain the advocacy website for a community effort opposing the I-10 freeway expansion in Houston.',
+  },
   {
     org: 'CodeCoogs',
     role: 'Events Coordinator Intern',
