@@ -112,10 +112,9 @@ export const projects: Project[] = [
       'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
       'Visualized coverage gaps to surface disparities in access to frequent transit.',
     ],
-    // Live embed disabled for now: the walk-access polygon layer has very
-    // high-vertex geometry that is too heavy to draw in-browser. Re-enable with
-    // `webmapId` once the layer is simplified or published as tiles.
-    mapLink: 'https://www.arcgis.com/apps/mapviewer/index.html?webmap=a930b4f766c74b2389c9002a1fa103c5',
+    images: [
+      { src: '/images/projects/transit-walkable-access.jpg', alt: 'Map of Houston shaded by the percentage of each Census block group within a quarter-mile walk of a high-frequency METRO route.' },
+    ],
     tags: ['ArcGIS Pro', 'GTFS', 'Transit', 'Equity'],
     featured: true,
   },
@@ -363,5 +362,26 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((p) => p.featured);
+// Display order for the featured grid, most important for the portfolio first.
+// Edit this list to reorder; any featured project not listed falls to the end.
+const FEATURED_ORDER = [
+  'bikeshare-equity-siting',
+  'downtown-land-use',
+  'transit-equity-frequency',
+  'amenity-equity',
+  'diemen-zuid-walkability',
+  'midtown-complete-streets',
+  'campus-bike-parking',
+  'istanbul-seismic-vulnerability',
+  'netherlands-photo-heatmap',
+  'mars-rover-mapping',
+];
+const orderIndex = (slug: string) => {
+  const i = FEATURED_ORDER.indexOf(slug);
+  return i === -1 ? Number.MAX_SAFE_INTEGER : i;
+};
+
+export const featuredProjects = projects
+  .filter((p) => p.featured)
+  .sort((a, b) => orderIndex(a.slug) - orderIndex(b.slug));
 export const otherProjects = projects.filter((p) => !p.featured);
