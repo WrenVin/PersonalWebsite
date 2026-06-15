@@ -187,7 +187,7 @@ export const projects: Project[] = [
     slug: 'istanbul-seismic-vulnerability',
     title: 'Istanbul Seismic Vulnerability Index',
     tool: 'ArcGIS Pro',
-    date: '2025',
+    date: 'Fall 2025',
     summary:
       'A 3D index combining earthquake hazard and population exposure to rank Istanbul’s districts by risk.',
     description:
@@ -227,6 +227,9 @@ export const projects: Project[] = [
     highlights: [
       'Traced the Perseverance rover’s route across Jezero Crater over Mars satellite imagery.',
       'Produced a print-quality cartographic layout with scale, inset, and source attribution.',
+    ],
+    images: [
+      { src: '/images/projects/mars-rover-path.jpg', alt: 'Cartographic map of NASA’s Perseverance rover path traced in cyan across the Jezero Crater delta on Mars, with scale bar, north arrow, and inset.' },
     ],
     tags: ['ArcGIS Pro', 'Cartography', 'Mars', 'Planetary'],
     featured: true,
