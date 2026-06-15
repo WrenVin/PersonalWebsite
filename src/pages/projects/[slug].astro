@@ -28,6 +28,7 @@ const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
         </div>
         <h1 class="proj-title">{project.title}</h1>
         <p class="lede">{project.summary}</p>
+        {project.award && <p class="award">★ {project.award}</p>}
         <ul class="tags">
           {project.tags.map((t) => <li class="tag">{t}</li>)}
         </ul>
@@ -106,6 +107,17 @@ const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
   .lede {
     font-size: 1.15rem;
     color: var(--text-muted);
+    margin: 0 0 1.2rem;
+  }
+  .award {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(93, 202, 165, 0.1);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 4px 12px;
     margin: 0 0 1.2rem;
   }
   .tags {

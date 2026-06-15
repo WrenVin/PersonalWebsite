@@ -7,11 +7,17 @@ const { project } = Astro.props;
 const href = `/projects/${project.slug}`;
 ---
 
-<a class="card" href={href}>
+<a class={`card${project.spotlight ? " spotlight" : ""}`} href={href}>
   <div class="card-top">
     <span class="tool">{project.tool}</span>
     <span class="date">{project.date}</span>
   </div>
+  {(project.spotlight || project.award) && (
+    <div class="badges">
+      {project.spotlight && <span class="badge badge-spotlight">★ Featured</span>}
+      {project.award && <span class="badge badge-award">★ {project.award}</span>}
+    </div>
+  )}
   <h3 class="title">{project.title}</h3>
   <p class="summary">{project.summary}</p>
 
@@ -50,6 +56,37 @@ const href = `/projects/${project.slug}`;
     background: var(--bg-elev-2);
     transform: translateY(-3px);
     color: var(--text);
+  }
+  .card.spotlight {
+    border-color: var(--accent-strong);
+    box-shadow: 0 0 0 1px var(--accent-strong);
+  }
+  .card.spotlight:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 3px 10px;
+    border-radius: 100px;
+    line-height: 1.4;
+  }
+  .badge-spotlight {
+    background: var(--accent);
+    color: #07221a;
+  }
+  .badge-award {
+    background: rgba(93, 202, 165, 0.1);
+    color: var(--accent);
+    border: 1px solid var(--border-strong);
   }
   .card-top {
     display: flex;

@@ -24,6 +24,10 @@ export type Project = {
   mapLink?: string;
   /** External link (devpost, github, live site). */
   link?: { href: string; label: string };
+  /** Award / recognition, shown as a badge (e.g. a hackathon win). */
+  award?: string;
+  /** Visually spotlight this project at the top of the work grid. */
+  spotlight?: boolean;
   /** Tags for filtering / display. */
   tags: string[];
   /** Whether this is a primary spatial project (vs. older secondary work). */
@@ -57,6 +61,7 @@ export const projects: Project[] = [
     ],
     stat: { value: '2.65×', label: 'more residents within a 5-minute walk than the 2021 BCycle network' },
     link: { href: '/research/bikeshare-equity-poster.pdf', label: 'View the research poster (PDF)' },
+    spotlight: true,
     tags: ['ArcGIS Pro', 'Network Analysis', 'Equity', 'Transportation', 'Research'],
     featured: true,
   },
@@ -208,12 +213,16 @@ export const projects: Project[] = [
     tool: 'Katy Youth Hacks',
     date: '2023',
     summary:
-      'A web app to help people living in food deserts find access to food.',
+      'A first-place hackathon web app helping people in food deserts find access to food.',
     description:
       'Food Oasis was built at the Katy Youth Hacks hackathon to help people who live in food ' +
-      'deserts find access to food. It was my first foray into web development.',
-    highlights: ['Built a web app to improve food access for people in food deserts.'],
+      'deserts find access to food. It won first place and was my first foray into web development.',
+    highlights: [
+      'Won 1st place at the Katy Youth Hacks hackathon.',
+      'Built a web app to improve food access for people in food deserts.',
+    ],
     link: { href: 'https://devpost.com/software/food-oasis-irp89a', label: 'View on Devpost' },
+    award: '1st place',
     tags: ['Web', 'Hackathon'],
     featured: false,
   },
