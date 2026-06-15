@@ -406,11 +406,11 @@ export const projects: Project[] = [
 // Edit this list to reorder; any featured project not listed falls to the end.
 const FEATURED_ORDER = [
   'bikeshare-equity-siting',
+  'commute-civic-engagement',
   'downtown-land-use',
   'transit-equity-frequency',
   'amenity-equity',
   'diemen-zuid-walkability',
-  'commute-civic-engagement',
   'midtown-complete-streets',
   'campus-bike-parking',
   'istanbul-seismic-vulnerability',
