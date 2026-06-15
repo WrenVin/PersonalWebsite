@@ -28,15 +28,54 @@ import { featuredProjects, otherProjects } from "../data/projects";
       <p class="eyebrow">Selected work</p>
       <h2 class="section-title">Spatial analysis & GIS projects</h2>
       <div class="grid">
-        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+        {featuredProjects.slice(0, 6).map((project) => <ProjectCard project={project} />)}
       </div>
 
-      <h3 class="subhead">Other projects</h3>
-      <div class="grid">
-        {otherProjects.map((project) => <ProjectCard project={project} />)}
+      <div id="more-projects" class="more-projects" hidden>
+        {featuredProjects.length > 6 && (
+          <div class="grid more-grid">
+            {featuredProjects.slice(6).map((project) => <ProjectCard project={project} />)}
+          </div>
+        )}
+        <h3 class="subhead">Other projects</h3>
+        <div class="grid">
+          {otherProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </div>
+
+      <div class="see-more-wrap">
+        <button
+          class="button see-more"
+          type="button"
+          aria-expanded="false"
+          aria-controls="more-projects"
+        >
+          See more projects
+        </button>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (function () {
+      var btn = document.querySelector(".see-more");
+      var more = document.getElementById("more-projects");
+      if (!btn || !more) return;
+      btn.addEventListener("click", function () {
+        var hidden = more.hasAttribute("hidden");
+        if (hidden) {
+          more.removeAttribute("hidden");
+          btn.textContent = "Show fewer projects";
+          btn.setAttribute("aria-expanded", "true");
+        } else {
+          more.setAttribute("hidden", "");
+          btn.textContent = "See more projects";
+          btn.setAttribute("aria-expanded", "false");
+          document.getElementById("work").scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    })();
+  </script>
 
   <!-- About -->
   <section id="about" class="section">
@@ -211,6 +250,18 @@ import { featuredProjects, otherProjects } from "../data/projects";
     color: var(--text-muted);
     margin: 3rem 0 1.3rem;
     font-weight: 500;
+  }
+  .more-grid {
+    margin-top: 1.2rem;
+  }
+  .see-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .see-more {
+    cursor: pointer;
+    font-family: inherit;
   }
 
   .about-layout {
