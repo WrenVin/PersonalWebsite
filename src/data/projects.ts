@@ -117,6 +117,7 @@ export const projects: Project[] = [
     images: [
       { src: '/images/projects/transit-walkable-access.jpg', alt: 'Map of Houston shaded by the percentage of each Census block group within a quarter-mile walk of a high-frequency METRO route.' },
     ],
+    imageAside: true,
     tags: ['ArcGIS Pro', 'GTFS', 'Transit', 'Equity'],
     featured: true,
   },
@@ -218,6 +219,7 @@ export const projects: Project[] = [
       href: 'https://www.arcgis.com/apps/mapviewer/index.html?layers=1d66d380bfbb4895b41ef16cae2f6f4d',
       label: 'Open the interactive map',
     },
+    imageAside: true,
     tags: ['ArcGIS Pro', '3D Visualization', 'Seismic Risk', 'Istanbul'],
     featured: true,
   },
