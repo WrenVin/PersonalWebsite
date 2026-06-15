@@ -15,6 +15,13 @@ export type Project = {
   webmapId?: string;
   /** Full iframe URL for StoryMaps / Experience Builder / web scenes. */
   mapEmbed?: string;
+  /**
+   * Link-out fallback for maps too data-heavy to embed live (e.g. layers with
+   * very high-vertex geometry). Renders a panel with an "open on ArcGIS" button
+   * instead of an inline map. Use until the map is optimized (simplified
+   * geometry or published as tiles), then switch back to `webmapId`.
+   */
+  mapLink?: string;
   /** External link (devpost, github, live site). */
   link?: { href: string; label: string };
   /** Tags for filtering / display. */
@@ -62,7 +69,10 @@ export const projects: Project[] = [
       'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
       'Visualized coverage gaps to surface disparities in access to frequent transit.',
     ],
-    webmapId: 'a930b4f766c74b2389c9002a1fa103c5',
+    // Live embed disabled for now: the walk-access polygon layer has very
+    // high-vertex geometry that is too heavy to draw in-browser. Re-enable with
+    // `webmapId` once the layer is simplified or published as tiles.
+    mapLink: 'https://www.arcgis.com/apps/mapviewer/index.html?webmap=a930b4f766c74b2389c9002a1fa103c5',
     tags: ['ArcGIS Pro', 'GTFS', 'Transit', 'Equity'],
     featured: true,
   },
