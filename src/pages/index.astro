@@ -40,27 +40,42 @@ import { featuredProjects, otherProjects } from "../data/projects";
 
   <!-- About -->
   <section id="about" class="section">
-    <div class="container about-layout">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2 class="section-title">A little background</h2>
-        <p>
-          I started writing software in middle school and competed in the FIRST Robotics
-          Competition in high school, where I picked up Java and object-oriented programming.
-          Today I’m an honors computer science student at the University of Houston, with minors
-          in Architecture and Data &amp; Society, and I recently spent a semester studying at the
-          Vrije Universiteit Amsterdam.
-        </p>
-        <p>
-          My focus has grown toward geographic information systems and urban planning, using
-          spatial data and visualization to understand transit, land use, and equity in cities,
-          with the goal of pursuing urban planning in graduate school and beyond.
-        </p>
-        <p>When I’m not working, you can usually find me riding my bike, reading, or playing cello.</p>
+    <div class="container">
+      <div class="about-layout">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 class="section-title">A little background</h2>
+          <p>
+            I started writing software in middle school and competed in the FIRST Robotics
+            Competition in high school, where I picked up Java and object-oriented programming.
+            Today I’m an honors computer science student at the University of Houston, with minors
+            in Architecture and Data &amp; Society, and I recently spent a semester studying at the
+            Vrije Universiteit Amsterdam.
+          </p>
+          <p>
+            My focus has grown toward geographic information systems and urban planning, using
+            spatial data and visualization to understand transit, land use, and equity in cities,
+            with the goal of pursuing urban planning in graduate school and beyond.
+          </p>
+          <p>When I’m not working, you can usually find me riding my bike, reading, or playing cello.</p>
+        </div>
+        <aside class="about-side">
+          <div class="panel">
+            <h3 class="panel-title">Education</h3>
+            {education.map((ed) => (
+              <div class="edu">
+                <p class="edu-org">{ed.org}</p>
+                <p class="edu-detail">{ed.detail}</p>
+                <p class="edu-meta">{ed.dates}{ed.note ? ` · ${ed.note}` : ""}</p>
+              </div>
+            ))}
+          </div>
+        </aside>
       </div>
-      <aside class="about-side">
-        <div class="panel">
-          <h3 class="panel-title">Skills</h3>
+
+      <div class="panel skills-panel">
+        <h3 class="panel-title">Skills</h3>
+        <div class="skill-grid">
           {skills.map((group) => (
             <div class="skill-group">
               <p class="skill-label">{group.label}</p>
@@ -70,17 +85,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
             </div>
           ))}
         </div>
-        <div class="panel">
-          <h3 class="panel-title">Education</h3>
-          {education.map((ed) => (
-            <div class="edu">
-              <p class="edu-org">{ed.org}</p>
-              <p class="edu-detail">{ed.detail}</p>
-              <p class="edu-meta">{ed.dates}{ed.note ? ` · ${ed.note}` : ""}</p>
-            </div>
-          ))}
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 
@@ -232,10 +237,16 @@ import { featuredProjects, otherProjects } from "../data/projects";
     font-size: 1rem;
     margin: 0 0 1.1rem;
   }
-  .skill-group {
-    margin-bottom: 1.1rem;
+  .skills-panel {
+    margin-top: 2rem;
   }
-  .skill-group:last-child {
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem 2rem;
+    margin-top: 0.3rem;
+  }
+  .skill-group {
     margin-bottom: 0;
   }
   .skill-label {

@@ -69,7 +69,7 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
       ) : (
         <>
           {hasImages && (
-            <div class={`gallery${project.images!.length === 1 ? " gallery-single" : ""}`}>
+            <div class={`gallery${project.images!.length === 1 ? " gallery-single" : ""}${project.images!.length === 2 ? " gallery-stack" : ""}`}>
               {project.images!.map((img) => (
                 <img src={img.src} alt={img.alt} loading="lazy" />
               ))}
@@ -247,6 +247,12 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
   .gallery.gallery-single {
     display: flex;
     justify-content: center;
+  }
+  /* Two wide images stack full-width (rather than shrinking side by side). */
+  .gallery.gallery-stack {
+    grid-template-columns: 1fr;
+    max-width: 1000px;
+    margin-inline: auto;
   }
   .gallery img {
     width: 100%;
