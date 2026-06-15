@@ -12,7 +12,17 @@ const nav = [
 <header class="site-header">
   <div class="container bar">
     <a href="/" class="brand">{site.name}</a>
-    <nav aria-label="Primary">
+
+    <button
+      class="menu-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-nav" aria-label="Primary">
       <ul>
         {nav.map((item) => (
           <li><a href={item.href}>{item.label}</a></li>
@@ -24,6 +34,31 @@ const nav = [
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  (function () {
+    var header = document.currentScript.previousElementSibling;
+    var btn = header.querySelector(".menu-toggle");
+    var nav = header.querySelector("#primary-nav");
+    function setOpen(open) {
+      header.classList.toggle("nav-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    btn.addEventListener("click", function () {
+      setOpen(!header.classList.contains("nav-open"));
+    });
+    // Close after tapping a link, or on resize back to desktop.
+    nav.addEventListener("click", function (e) {
+      if (e.target.closest("a")) setOpen(false);
+    });
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 680) setOpen(false);
+    });
+  })();
+</script>
 
 <style>
   .site-header {
@@ -71,13 +106,95 @@ const nav = [
   .resume-link:hover {
     background: rgba(93, 202, 165, 0.1);
   }
-  @media (max-width: 600px) {
-    nav ul {
-      gap: 1rem;
+
+  /* Hamburger button — hidden on desktop */
+  .menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .bars {
+    position: relative;
+  }
+  .bars,
+  .bars::before,
+  .bars::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--text);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .bars::before,
+  .bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .bars::before {
+    top: -6px;
+  }
+  .bars::after {
+    top: 6px;
+  }
+
+  @media (max-width: 680px) {
+    .menu-toggle {
+      display: inline-flex;
     }
-    nav li:nth-child(3),
-    nav li:nth-child(2) {
-      display: none;
+    nav {
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    nav ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      padding: 0 1.5rem;
+    }
+    nav a {
+      display: block;
+      padding: 0.85rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    nav li:last-child a {
+      border-bottom: 0;
+    }
+    .resume-link {
+      display: inline-block !important;
+      margin: 0.6rem 0;
+    }
+    .nav-open nav {
+      max-height: 360px;
+    }
+    .nav-open .bars {
+      background: transparent;
+    }
+    .nav-open .bars::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    .nav-open .bars::after {
+      top: 0;
+      transform: rotate(-45deg);
     }
   }
 </style>
