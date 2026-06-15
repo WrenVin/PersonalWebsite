@@ -1,0 +1,123 @@
+---
+import type { Project } from "../data/projects";
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const href = `/projects/${project.slug}`;
+---
+
+<a class="card" href={href}>
+  <div class="card-top">
+    <span class="tool">{project.tool}</span>
+    <span class="date">{project.date}</span>
+  </div>
+  <h3 class="title">{project.title}</h3>
+  <p class="summary">{project.summary}</p>
+
+  {project.stat && (
+    <div class="stat">
+      <span class="stat-value">{project.stat.value}</span>
+      <span class="stat-label">{project.stat.label}</span>
+    </div>
+  )}
+
+  <div class="card-foot">
+    <ul class="tags">
+      {project.tags.slice(0, 3).map((t) => <li class="tag">{t}</li>)}
+    </ul>
+    <span class="arrow" aria-hidden="true">→</span>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: var(--text);
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease,
+      background 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    background: var(--bg-elev-2);
+    transform: translateY(-3px);
+    color: var(--text);
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 0.9rem;
+  }
+  .tool {
+    color: var(--accent);
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+  }
+  .date {
+    color: var(--text-faint);
+  }
+  .title {
+    font-size: 1.18rem;
+    margin: 0 0 0.5rem;
+  }
+  .summary {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 1.1rem;
+    flex: 1;
+  }
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.7rem 0.9rem;
+    background: rgba(93, 202, 165, 0.07);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.1rem;
+  }
+  .stat-value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+  .stat-label {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .arrow {
+    color: var(--accent);
+    font-size: 1.1rem;
+    transition: transform 0.15s ease;
+  }
+  .card:hover .arrow {
+    transform: translateX(4px);
+  }
+</style>

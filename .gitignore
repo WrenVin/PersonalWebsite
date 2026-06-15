@@ -1,0 +1,17 @@
+# build output
+dist/
+# dependencies
+node_modules/
+# generated types
+.astro/
+# macOS
+.DS_Store
+# logs
+npm-debug.log*
+# env
+.env
+.env.production
+# archived old template
+.old-site-backup/
+# recovered legacy project screenshots (kept locally, not committed)
+recovered_assets/

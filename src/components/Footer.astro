@@ -1,0 +1,50 @@
+---
+import { site } from "../data/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <p class="copy">© {year} {site.name}</p>
+    <ul class="links">
+      <li><a href={`mailto:${site.email}`}>Email</a></li>
+      <li><a href={site.links.github} target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href={site.links.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href={site.resume}>Résumé</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: 2.5rem;
+    margin-top: 2rem;
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .copy {
+    margin: 0;
+    color: var(--text-faint);
+    font-size: 0.88rem;
+  }
+  .links {
+    display: flex;
+    gap: 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .links a {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+  .links a:hover {
+    color: var(--accent);
+  }
+</style>

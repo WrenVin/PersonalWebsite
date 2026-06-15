@@ -1,0 +1,92 @@
+---
+// Renders an ArcGIS (or other) interactive map embed. When no `src` is supplied
+// it shows a clearly-marked placeholder so the layout is final before the real
+// share URL is dropped in. To wire up a real map, set the project's `mapEmbed`
+// to an ArcGIS web map / StoryMap / Experience Builder share URL.
+interface Props {
+  src?: string;
+  title: string;
+}
+const { src, title } = Astro.props;
+---
+
+{
+  src ? (
+    <div class="map-frame">
+      <iframe
+        src={src}
+        title={`Interactive map: ${title}`}
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+      />
+    </div>
+  ) : (
+    <div class="map-placeholder" role="img" aria-label={`Map placeholder for ${title}`}>
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="ph-content">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" />
+          <path d="M9 3v15M15 6v15" />
+        </svg>
+        <p class="ph-title">Interactive map</p>
+        <p class="ph-sub">An ArcGIS web map will be embedded here.</p>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .map-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elev);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .map-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px dashed var(--border-strong);
+    background: var(--bg-elev);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .ph-content {
+    position: relative;
+    text-align: center;
+    color: var(--accent);
+    padding: 1rem;
+  }
+  .ph-title {
+    margin: 0.8rem 0 0.2rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .ph-sub {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+</style>

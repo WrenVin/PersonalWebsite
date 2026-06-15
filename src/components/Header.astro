@@ -1,0 +1,83 @@
+---
+import { site } from "../data/site";
+
+const nav = [
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand">{site.name}</a>
+    <nav aria-label="Primary">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+        <li>
+          <a href={site.resume} class="resume-link">Résumé</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 26, 36, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  nav a:hover {
+    color: var(--text);
+  }
+  .resume-link {
+    color: var(--accent) !important;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 0.35rem 0.85rem;
+  }
+  .resume-link:hover {
+    background: rgba(93, 202, 165, 0.1);
+  }
+  @media (max-width: 600px) {
+    nav ul {
+      gap: 1rem;
+    }
+    nav li:nth-child(3),
+    nav li:nth-child(2) {
+      display: none;
+    }
+  }
+</style>

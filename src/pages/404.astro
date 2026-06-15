@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Page not found">
+  <section class="nf">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>This page is off the map.</h1>
+      <p>The page you’re looking for doesn’t exist or has moved.</p>
+      <a href="/" class="button primary">Back home</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    padding-block: 7rem;
+    text-align: center;
+  }
+  .nf .eyebrow {
+    margin-inline: auto;
+  }
+  .nf h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+  .nf p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+</style>
