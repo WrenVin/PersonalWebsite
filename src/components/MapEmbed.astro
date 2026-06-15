@@ -1,11 +1,11 @@
 ---
 // Renders an ArcGIS map for a project. Three modes, in priority order:
-//   1. `webmapId` — a public ArcGIS web map item id. Rendered with the modern
+//   1. `webmapId`: a public ArcGIS web map item id. Rendered with the modern
 //      ArcGIS Maps SDK for JavaScript (4.x), the same engine as the new Map
 //      Viewer, so new-style renderers/symbology display correctly. (The classic
 //      apps/Embed iframe uses the old 3.x API and mis-renders v2.x web maps.)
-//   2. `src` — a full iframe URL (StoryMaps, Experience Builder, web scenes).
-//   3. neither — a labeled placeholder.
+//   2. `src`: a full iframe URL (StoryMaps, Experience Builder, web scenes).
+//   3. neither: a labeled placeholder.
 const ARCGIS_VERSION = "4.30";
 interface Props {
   webmapId?: string;

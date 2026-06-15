@@ -15,3 +15,5 @@ npm-debug.log*
 .old-site-backup/
 # recovered legacy project screenshots (kept locally, not committed)
 recovered_assets/
+# Claude Code local config
+.claude/
