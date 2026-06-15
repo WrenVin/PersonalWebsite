@@ -122,6 +122,11 @@ import { featuredProjects, otherProjects } from "../data/projects";
             </div>
             <p class="lead-org">{item.org}</p>
             <p class="lead-note">{item.note}</p>
+            {item.link && (
+              <a class="lead-link" href={item.link.href} target="_blank" rel="noopener">
+                {item.link.label} ↗
+              </a>
+            )}
           </li>
         ))}
       </ul>
@@ -352,6 +357,16 @@ import { featuredProjects, otherProjects } from "../data/projects";
     color: var(--text-muted);
     font-size: 0.94rem;
     margin: 0;
+  }
+  .lead-link {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .lead-link:hover {
+    color: #8fe0c5;
   }
 
   .contact-inner {
