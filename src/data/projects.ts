@@ -127,16 +127,19 @@ export const projects: Project[] = [
     summary:
       'Quantifying how much of downtown’s land is given to vehicles versus people.',
     description:
-      'This analysis quantifies the downtown built environment to compare vehicle and pedestrian ' +
-      'land allocation in the urban core. Synthesizing municipal and OpenStreetMap data, it ' +
-      'categorizes road, parking, sidewalk, and park surface areas, finding that 71.9% of ' +
-      'downtown land serves vehicles versus 9.2% for pedestrians.',
+      'I analyzed Downtown Houston’s built environment by quantifying the land area dedicated to ' +
+      'vehicle infrastructure versus pedestrian infrastructure. Combining official data from the ' +
+      'City of Houston, H-GAC, and OpenStreetMap in ArcGIS Pro, I built a 3D scene to visualize ' +
+      'the vertical scale of parking and ran a land-use analysis estimating the area of four ' +
+      'components: roads, parking, sidewalks, and parks. An estimated 71.95% of downtown’s land ' +
+      'serves car infrastructure versus 9.26% for pedestrians, meaning roughly eight times more ' +
+      'land goes to moving and storing vehicles than to the pedestrian realm and public green space.',
     highlights: [
-      'Quantified the CBD built environment to compare vehicle and pedestrian land use.',
-      'Synthesized municipal and OSM data into road, parking, sidewalk, and park areas.',
-      'Found 71.9% of downtown land serves vehicles vs. 9.2% for pedestrians.',
+      'Combined City of Houston, H-GAC, and OpenStreetMap data in ArcGIS Pro.',
+      'Built a 3D scene of parking plus a four-part land-use analysis (roads, parking, sidewalks, parks).',
+      'Found 71.95% of downtown serves vehicles vs. 9.26% for pedestrians, roughly an 8x imbalance.',
     ],
-    stat: { value: '71.9%', label: 'of downtown land allocated to vehicles' },
+    stat: { value: '8×', label: 'more downtown land for cars than for people' },
     webmapId: '5929c6f281d04567b0585d9c5c820ce1',
     tags: ['ArcGIS Pro', 'Land Use', 'OSM', 'Houston'],
     featured: true,
@@ -149,16 +152,21 @@ export const projects: Project[] = [
     summary:
       'A field survey of 74 campus bike racks revealing where capacity is failing.',
     description:
-      'Using ArcGIS Field Maps, I surveyed 74 bike-rack locations across campus to collect ' +
-      'attribute data on capacity and usage. The resulting dataset identified critical capacity ' +
-      'failures: library racks exceeding 100% usage while dormitory racks sat empty.',
+      'This project used GIS workflows to evaluate how well bicycle infrastructure matches demand ' +
+      'across the University of Houston campus, identifying spatial imbalances between parking ' +
+      'capacity and actual usage to support data-driven planning. I ran a field survey of 74 ' +
+      'bike-rack locations using ArcGIS Field Maps, collecting data around noon on a weekday to ' +
+      'capture peak campus activity and recording both total capacity and real-time usage ' +
+      '(bicycles and scooters). In ArcGIS Pro, I processed the survey into a bivariate ' +
+      'visualization of infrastructure performance, where library racks ran past 100% capacity ' +
+      'while dormitory racks sat largely empty.',
     highlights: [
-      'Surveyed 74 bike-rack locations via ArcGIS Field Maps for capacity and usage data.',
-      'Identified capacity failures where library racks exceeded 100% while dorms sat empty.',
+      'Surveyed 74 bike-rack locations with ArcGIS Field Maps at weekday peak (around noon).',
+      'Recorded total capacity and real-time usage, counting both bicycles and scooters.',
+      'Built a bivariate symbology in ArcGIS Pro to expose capacity-versus-demand imbalances.',
     ],
     stat: { value: '74', label: 'bike-rack locations surveyed' },
     webmapId: 'c93db6af604041dbba33df9f28541e06',
-    mapEmbed: '',
     tags: ['ArcGIS Online', 'Field Maps', 'Survey', 'Campus'],
     featured: true,
   },
@@ -232,6 +240,57 @@ export const projects: Project[] = [
       { src: '/images/projects/mars-rover-path.jpg', alt: 'Cartographic map of NASA’s Perseverance rover path traced in cyan across the Jezero Crater delta on Mars, with scale bar, north arrow, and inset.' },
     ],
     tags: ['ArcGIS Pro', 'Cartography', 'Mars', 'Planetary'],
+    featured: true,
+  },
+  {
+    slug: 'netherlands-photo-heatmap',
+    title: 'Photographic Footprint of the Netherlands',
+    tool: 'Kepler.gl',
+    date: 'Spring 2025',
+    summary:
+      'A heatmap of 13,000 geotagged photos from my semester abroad, layered with GPX tracks from two long-distance bike tours.',
+    description:
+      'For this project I mapped my own “photographic footprint” from a semester studying abroad ' +
+      'in the Netherlands. Using a macOS command-line tool, I extracted the latitude and longitude ' +
+      'metadata from all 13,000 images in my photo library, then loaded the points into Kepler.gl ' +
+      'to build a density heatmap. The hotspots immediately revealed where I spent my time, in ' +
+      'cities like Amsterdam, Rotterdam, and Utrecht. Noticing the heatmap traced my long-distance ' +
+      'rides, I overlaid GPX data from two cycling trips, the Tour De Nederland and Tour De ' +
+      'Flanders, combining a density layer of everyday life with line data from specific events.',
+    highlights: [
+      'Extracted GPS metadata from 13,000 personal photos using a macOS command-line tool.',
+      'Built a density heatmap in Kepler.gl, surfacing hotspots in Amsterdam, Rotterdam, and Utrecht.',
+      'Overlaid GPX tracks from two bike tours (Tour De Nederland and Tour De Flanders).',
+    ],
+    stat: { value: '13,000', label: 'geotagged photos mapped' },
+    images: [
+      { src: '/images/projects/netherlands-photo-heatmap.jpg', alt: 'Heatmap of the Netherlands showing density of 13,000 geotagged photos in yellow, with two bike-tour routes overlaid as lines.' },
+    ],
+    tags: ['Kepler.gl', 'Heatmap', 'Personal Data', 'Netherlands'],
+    featured: true,
+  },
+  {
+    slug: 'diemen-zuid-walkability',
+    title: 'A 15-Minute Neighborhood: Diemen-Zuid',
+    tool: 'ArcGIS Pro · Network Analyst',
+    date: 'Fall 2025',
+    summary:
+      'A walkability analysis of my old Amsterdam neighborhood, mapping what is reachable on foot in 5, 10, and 15 minutes.',
+    description:
+      'Using OpenStreetMap data, I analyzed the walkability of my old neighborhood, Diemen-Zuid in ' +
+      'Amsterdam. Starting from my former apartment, I ran a network analysis in ArcGIS Pro to ' +
+      'generate isochrones (service areas) for 5, 10, and 15-minute walking times, then overlaid ' +
+      'OSM amenity data, including grocery stores, cafes, and pharmacies, to visualize what is ' +
+      'truly accessible on foot.',
+    highlights: [
+      'Generated 5, 10, and 15-minute walking isochrones from a single origin with ArcGIS Network Analyst.',
+      'Built the pedestrian network from OpenStreetMap data.',
+      'Overlaid OSM amenities (groceries, cafes, pharmacies) to assess everyday walkable access.',
+    ],
+    images: [
+      { src: '/images/projects/diemen-zuid-walkability.jpg', alt: 'Walkability map of Diemen-Zuid, Amsterdam showing 5, 10, and 15-minute walking isochrones around an apartment with grocery, cafe, and pharmacy locations.' },
+    ],
+    tags: ['ArcGIS Pro', 'Network Analysis', 'Walkability', 'OSM', 'Amsterdam'],
     featured: true,
   },
   {
