@@ -31,11 +31,7 @@ export const skills: SkillGroup[] = [
       'Network Analyst',
       'GeoAI',
       'Kepler.gl',
-      'Location-allocation',
-      'Isochrones & accessibility',
-      'Spatial joins',
       'Georeferencing',
-      '3D modeling',
     ],
   },
   {
@@ -43,7 +39,6 @@ export const skills: SkillGroup[] = [
     items: [
       'Survey design & distribution',
       'Data cleaning',
-      'PCA',
       'Correlation analysis',
       'GTFS',
       'OpenStreetMap',
@@ -53,13 +48,11 @@ export const skills: SkillGroup[] = [
   {
     label: 'Programming',
     items: [
-      'Python (pandas, NumPy, matplotlib)',
-      'R (ggplot2)',
+      'Python',
       'JavaScript',
       'Java',
       'C++',
       'Git / GitHub',
-      'Google Sheets API',
     ],
   },
   {
@@ -67,7 +60,6 @@ export const skills: SkillGroup[] = [
     items: [
       'Data portraits',
       'Cartographic design',
-      'Choropleth & bivariate maps',
       'Isotype charts',
       '3D visualization',
     ],
@@ -81,7 +73,6 @@ export const skills: SkillGroup[] = [
       'Community advocacy',
       'Cross-disciplinary teamwork',
       'Human-centered design',
-      'Field research',
     ],
   },
 ];
