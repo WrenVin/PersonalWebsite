@@ -11,9 +11,11 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const hasImages = !!(project.images && project.images.length);
 // Show the map area only when there's an actual map source to render, so projects
 // awaiting a link (or whose deliverable isn't a web map) don't show an empty slot.
-const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
+// Images take precedence over a live map when both exist.
+const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project.mapLink);
 ---
 
 <Base title={project.title} description={project.summary}>
@@ -33,6 +35,14 @@ const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
           {project.tags.map((t) => <li class="tag">{t}</li>)}
         </ul>
       </header>
+
+      {hasImages && (
+        <div class={`gallery${project.images!.length === 1 ? " gallery-single" : ""}`}>
+          {project.images!.map((img) => (
+            <img src={img.src} alt={img.alt} loading="lazy" />
+          ))}
+        </div>
+      )}
 
       {showMap && (
         <div class="map-wrap">
@@ -130,6 +140,23 @@ const showMap = !!(project.webmapId || project.mapEmbed || project.mapLink);
   }
   .map-wrap {
     margin-bottom: 3rem;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+  .gallery.gallery-single {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+  }
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
   }
   .body {
     display: grid;

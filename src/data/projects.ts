@@ -28,6 +28,8 @@ export type Project = {
   award?: string;
   /** Visually spotlight this project at the top of the work grid. */
   spotlight?: boolean;
+  /** Project images, shown as a gallery on the project page. */
+  images?: { src: string; alt: string }[];
   /** Tags for filtering / display. */
   tags: string[];
   /** Whether this is a primary spatial project (vs. older secondary work). */
@@ -74,15 +76,22 @@ export const projects: Project[] = [
       'A 3D procedural model exploring how the Louisiana & Smith corridor could be retrofitted for multimodal travel.',
     description:
       'Using ArcGIS CityEngine, I procedurally modeled a 3D retrofit of the Louisiana & Smith ' +
-      'corridor to visualize future-state street concepts. The project redesigns the digital ' +
-      'right-of-way to transform five-lane arterials into multimodal, transit-rich corridors, ' +
-      'demonstrating the spatial feasibility of road-diet interventions using existing street widths.',
+      'corridor to visualize future-state street concepts. The redesign reallocates the existing ' +
+      'right-of-way, converting five 12-foot general-purpose lanes and 4.5-foot sidewalks into a ' +
+      'multimodal section: 9-foot sidewalks, a 6-foot protected bike lane, a 10-foot bus lane, and ' +
+      'two 10-foot general-purpose lanes. It demonstrates the spatial feasibility of road-diet ' +
+      'interventions using only the street width that already exists.',
     highlights: [
-      'Procedurally modeled a 3D retrofit of the Louisiana & Smith corridor.',
-      'Redesigned the digital right-of-way to convert five-lane arterials into multimodal corridors.',
-      'Showed the spatial feasibility of road-diet interventions within existing street widths.',
+      'Procedurally modeled a 3D before-and-after retrofit of the Louisiana & Smith corridor in CityEngine.',
+      'Reallocated five 12ft car lanes into 9ft sidewalks, a 6ft protected bike lane, a 10ft bus lane, and two 10ft general lanes.',
+      'Showed road-diet feasibility within the existing right-of-way, with no widening required.',
     ],
-    mapEmbed: '',
+    stat: { value: '5 → 2', label: 'general-purpose car lanes, the rest reallocated to transit, bikes, and people' },
+    images: [
+      { src: '/images/projects/midtown-1-section.jpg', alt: 'Before-and-after street cross-section: five 12ft car lanes become 9ft sidewalks, a 6ft protected bike lane, a 10ft bus lane, and two 10ft general lanes.' },
+      { src: '/images/projects/midtown-2-today.jpg', alt: 'Aerial of the Louisiana & Smith corridor today, showing wide multi-lane arterials.' },
+      { src: '/images/projects/midtown-3-transformed.jpg', alt: 'Aerial of the transformed corridor with protected bike lanes, bus lanes, and street trees.' },
+    ],
     tags: ['CityEngine', '3D', 'Complete Streets', 'Houston'],
     featured: true,
   },
@@ -148,13 +157,14 @@ export const projects: Project[] = [
       'Identified capacity failures where library racks exceeded 100% while dorms sat empty.',
     ],
     stat: { value: '74', label: 'bike-rack locations surveyed' },
+    webmapId: 'c93db6af604041dbba33df9f28541e06',
     mapEmbed: '',
     tags: ['ArcGIS Online', 'Field Maps', 'Survey', 'Campus'],
     featured: true,
   },
   {
     slug: 'amenity-equity',
-    title: 'Houston Amenity Equity Analysis',
+    title: 'Houston Equity of Places',
     tool: 'QGIS',
     date: 'Summer 2025',
     summary:
@@ -169,7 +179,56 @@ export const projects: Project[] = [
     ],
     stat: { value: '1.3%', label: 'of grocery stores in majority-Black neighborhoods (7.9% of pop.)' },
     mapEmbed: '',
+    link: { href: '/research/houston-equity-of-places.pdf', label: 'View the analysis (PDF)' },
     tags: ['QGIS', 'Equity', 'Census', 'Houston'],
+    featured: true,
+  },
+  {
+    slug: 'istanbul-seismic-vulnerability',
+    title: 'Istanbul Seismic Vulnerability Index',
+    tool: 'ArcGIS Pro',
+    date: '2025',
+    summary:
+      'A 3D index combining earthquake hazard and population exposure to rank Istanbul’s districts by risk.',
+    description:
+      'A 3D analytical map that ranks Istanbul’s districts by seismic vulnerability to help ' +
+      'prioritize disaster preparedness. The Vulnerability Index combines a hazard score, the peak ' +
+      'ground-shaking intensity (Spectral Acceleration) projected for a full North Anatolian Fault ' +
+      'rupture under the official worst-case scenario, with an exposure score based on each ' +
+      'district’s 2022 population. Multiplying the two surfaces the districts that face both intense ' +
+      'shaking and dense population, shown as the tallest, deepest-red polygons.',
+    highlights: [
+      'Combined hazard (projected ground shaking) and exposure (2022 district population) into one vulnerability index.',
+      'Modeled the official worst-case North Anatolian Fault rupture scenario using Spectral Acceleration.',
+      'Used 3D extrusion and a graduated color ramp to flag the highest-priority districts for preparedness.',
+    ],
+    images: [
+      { src: '/images/projects/istanbul-vulnerability.jpg', alt: '3D extruded map of Istanbul districts colored and raised by a seismic vulnerability index combining earthquake hazard and population exposure.' },
+    ],
+    link: {
+      href: 'https://www.arcgis.com/apps/mapviewer/index.html?layers=1d66d380bfbb4895b41ef16cae2f6f4d',
+      label: 'Open the interactive map',
+    },
+    tags: ['ArcGIS Pro', '3D Visualization', 'Seismic Risk', 'Istanbul'],
+    featured: true,
+  },
+  {
+    slug: 'mars-rover-mapping',
+    title: 'Perseverance Rover Path, Jezero Crater',
+    tool: 'ArcGIS Pro',
+    date: 'Fall 2025',
+    summary:
+      'A cartographic map tracing NASA’s Perseverance rover path across Jezero Crater on Mars.',
+    description:
+      'A cartographic project mapping the path of NASA’s Perseverance rover across Jezero Crater ' +
+      'on Mars, traced over planetary satellite imagery (USGS, NASA/JPL, ESA, HRSC, and Esri Mars ' +
+      'basemaps). The map follows the rover’s route through an ancient river delta and is laid out ' +
+      'as a print-quality cartographic product with scale bar, inset, and source attribution.',
+    highlights: [
+      'Traced the Perseverance rover’s route across Jezero Crater over Mars satellite imagery.',
+      'Produced a print-quality cartographic layout with scale, inset, and source attribution.',
+    ],
+    tags: ['ArcGIS Pro', 'Cartography', 'Mars', 'Planetary'],
     featured: true,
   },
   {
