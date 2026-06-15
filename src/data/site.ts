@@ -114,7 +114,7 @@ export type Leadership = {
 export const leadership: Leadership[] = [
   {
     org: 'CEA CAPA',
-    role: 'Alumni Ambassador · Featured National Speaker',
+    role: 'Alumni Ambassador · Featured Storyteller',
     dates: 'Feb 2026',
     note: 'Published a featured narrative on Dutch cycling infrastructure and study abroad for The Forum Annual Conference.',
     link: { href: '/writing/cea-transformation.jpg', label: 'Read “Transformation”' },

@@ -45,7 +45,7 @@ export const projects: Project[] = [
     tool: 'ArcGIS Pro · Network Analyst',
     date: 'Spring 2026',
     summary:
-      'Provost Undergraduate Research Scholarship work modeling where a future Houston bike share should place stations to maximize both ridership and equity.',
+      'Modeling where a future Houston bike share should place stations to balance ridership and equity.',
     description:
       'For the University of Houston Provost Undergraduate Research Scholarship (PURS), advised by ' +
       'Donna Kacmar in the Hines College of Architecture, I developed a spatial methodology for ' +
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       'Built a custom, population-normalized equity score from poverty, demographics, and vehicle access.',
       'Re-ran the allocation on the equity score to redistribute stations into underserved neighborhoods.',
     ],
-    stat: { value: '2.65×', label: 'more residents within a 5-minute walk than the 2021 BCycle network' },
+    stat: { value: '2.65×', label: 'more residents reached than the 2021 BCycle network' },
     link: { href: '/research/bikeshare-equity-poster.pdf', label: 'View the research poster (PDF)' },
     spotlight: true,
     tags: ['ArcGIS Pro', 'Network Analysis', 'Equity', 'Transportation', 'Research'],
