@@ -108,7 +108,9 @@ export const projects: Project[] = [
       'This study maps the METRO high-frequency transit network using GTFS data to identify ' +
       'critical service corridors. By overlaying quarter-mile walk buffers onto block-group ' +
       'population data, it computes accessibility metrics and visualizes where service coverage ' +
-      'gaps line up with socioeconomic disparities in access to frequent transit.',
+      'gaps line up with socioeconomic disparities in access to frequent transit. The result is a ' +
+      'map of where frequency upgrades would reach the most underserved riders, a starting point ' +
+      'for prioritizing METRO investment.',
     highlights: [
       'Mapped the METRO high-frequency network from GTFS data to identify service corridors.',
       'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
@@ -161,7 +163,8 @@ export const projects: Project[] = [
       'capture peak campus activity and recording both total capacity and real-time usage ' +
       '(bicycles and scooters). In ArcGIS Pro, I processed the survey into a bivariate ' +
       'visualization of infrastructure performance, where library racks ran past 100% capacity ' +
-      'while dormitory racks sat largely empty.',
+      'while dormitory racks sat largely empty. The mismatch gives the university a data-backed ' +
+      'case for relocating racks from where they sit unused to where demand overflows.',
     highlights: [
       'Surveyed 74 bike-rack locations with ArcGIS Field Maps at weekday peak (around noon).',
       'Recorded total capacity and real-time usage, counting both bicycles and scooters.',
@@ -182,7 +185,8 @@ export const projects: Project[] = [
     description:
       'This QGIS analysis performs spatial joins to correlate amenity density with Census racial ' +
       'demographic data across Houston. It revealed that majority-Black neighborhoods house 7.9% ' +
-      'of the population but contain only 1.3% of the city’s grocery stores.',
+      'of the population but contain only 1.3% of the city’s grocery stores, a concrete measure ' +
+      'of food-access inequity that targeted planning and retail incentives could address.',
     highlights: [
       'Performed spatial joins in QGIS to correlate amenity density with Census demographics.',
       'Found majority-Black neighborhoods house 7.9% of people but only 1.3% of grocery stores.',
@@ -286,7 +290,8 @@ export const projects: Project[] = [
       'Amsterdam. Starting from my former apartment, I ran a network analysis in ArcGIS Pro to ' +
       'generate isochrones (service areas) for 5, 10, and 15-minute walking times, then overlaid ' +
       'OSM amenity data, including grocery stores, cafes, and pharmacies, to visualize what is ' +
-      'truly accessible on foot.',
+      'truly accessible on foot. The result is a benchmark for the 15-minute neighborhood: the ' +
+      'kind of everyday walkability that car-oriented cities like Houston could plan toward.',
     highlights: [
       'Generated 5, 10, and 15-minute walking isochrones from a single origin with ArcGIS Network Analyst.',
       'Built the pedestrian network from OpenStreetMap data.',

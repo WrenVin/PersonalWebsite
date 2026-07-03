@@ -1,11 +1,10 @@
 ---
 import { site } from "../data/site";
-const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container inner">
-    <p class="copy">© {year} {site.name}</p>
+    <p class="copy">© {site.name}</p>
     <ul class="links">
       <li><a href={`mailto:${site.email}`}>Email</a></li>
       <li><a href={site.links.github} target="_blank" rel="noopener">GitHub</a></li>

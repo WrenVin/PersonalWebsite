@@ -1,13 +1,13 @@
 export const site = {
   name: 'Vincent Wren',
-  tagline: 'GIS & Spatial Analysis · Urban Planning · Computer Science',
+  tagline: 'Urban Planning · GIS & Spatial Analysis · Computer Science',
   // Short status line shown above the name in the hero.
   status: 'Honors CS @ University of Houston · Houston, TX',
   // Kept intentionally general, describing the work without overselling it.
   intro:
-    'I’m a computer science student at the University of Houston working at the ' +
-    'intersection of software, geographic information systems, and urban planning. ' +
-    'I use spatial data to study how cities work, and how they might work better.',
+    'I’m an honors student at the University of Houston working toward a career in ' +
+    'urban planning, backed by a computer science degree. I use GIS and spatial data ' +
+    'to study how cities work, and how they might work better.',
   location: 'Houston, TX',
   email: 'wrenvin@gmail.com',
   resume: '/resume.pdf',
@@ -15,6 +15,10 @@ export const site = {
     github: 'https://github.com/WrenVin',
     linkedin: 'https://www.linkedin.com/in/vincent-wren',
   },
+  // Privacy-friendly analytics. Sign up free at goatcounter.com, pick a code
+  // (e.g. "vincentwren"), and put it here; the tracking script only renders
+  // when this is non-empty.
+  goatcounter: '',
 };
 
 export type SkillGroup = { label: string; items: string[] };

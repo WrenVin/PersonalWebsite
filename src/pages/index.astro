@@ -1,8 +1,13 @@
 ---
+import fs from "node:fs";
 import Base from "../layouts/Base.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { site, skills, experience, education, leadership } from "../data/site";
 import { featuredProjects, otherProjects } from "../data/projects";
+
+// Drop a photo at public/images/portrait.jpg and it appears in the About
+// section on the next build; nothing renders while the file is absent.
+const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", import.meta.url));
 ---
 
 <Base>
@@ -16,7 +21,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
       <p class="hero-intro">{site.intro}</p>
       <div class="hero-actions">
         <a href={site.resume} class="button primary">Resume</a>
-        <a href="#about" class="button">Skills</a>
+        <a href="#skills" class="button">Skills</a>
         <a href={`mailto:${site.email}`} class="button">Get in touch</a>
       </div>
     </div>
@@ -99,6 +104,14 @@ import { featuredProjects, otherProjects } from "../data/projects";
           <p>When I’m not working, you can usually find me riding my bike, reading, or playing cello.</p>
         </div>
         <aside class="about-side">
+          {hasPortrait && (
+            <img
+              class="portrait"
+              src="/images/portrait.jpg"
+              alt="Vincent Wren"
+              loading="lazy"
+            />
+          )}
           <div class="panel">
             <h3 class="panel-title">Education</h3>
             {education.map((ed) => (
@@ -112,7 +125,7 @@ import { featuredProjects, otherProjects } from "../data/projects";
         </aside>
       </div>
 
-      <div class="panel skills-panel">
+      <div id="skills" class="panel skills-panel">
         <h3 class="panel-title">Skills</h3>
         <div class="skill-grid">
           {skills.map((group) => (
@@ -275,6 +288,11 @@ import { featuredProjects, otherProjects } from "../data/projects";
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+  }
+  .portrait {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
   }
   .panel {
     background: var(--bg-elev);

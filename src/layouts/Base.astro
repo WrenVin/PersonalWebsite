@@ -71,7 +71,23 @@ const jsonLd = {
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    {site.goatcounter && (
+      <script
+        is:inline
+        async
+        data-goatcounter={`https://${site.goatcounter}.goatcounter.com/count`}
+        src="https://gc.zgo.at/count.js"
+      />
+    )}
   </head>
   <body>
     <a href="#main" class="sr-only">Skip to content</a>
