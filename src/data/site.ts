@@ -6,14 +6,16 @@ export const site = {
   // Kept intentionally general, describing the work without overselling it.
   intro:
     'I’m an honors student at the University of Houston working toward a career in ' +
-    'urban planning, backed by a computer science degree. I use GIS and spatial data ' +
-    'to study how cities work, and how they might work better.',
+    'urban planning, backed by a computer science degree. My current research is in ' +
+    'transportation safety: modeling crash risk from street design, and building the ' +
+    'public tools that show how cities decide which streets are dangerous.',
   location: 'Houston, TX',
   email: 'wrenvin@gmail.com',
   resume: '/resume.pdf',
   links: {
     github: 'https://github.com/WrenVin',
     linkedin: 'https://www.linkedin.com/in/vincent-wren',
+    orcid: 'https://orcid.org/0009-0002-7667-1620',
   },
   // Privacy-friendly analytics. Sign up free at goatcounter.com, pick a code
   // (e.g. "vincentwren"), and put it here; the tracking script only renders
@@ -39,20 +41,27 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    label: 'Data & statistics',
+    label: 'Statistics & machine learning',
     items: [
+      'Negative binomial regression',
+      'Spatial statistics (Moran’s I, Getis-Ord)',
+      'Machine learning',
+      'Computer vision (SegFormer, Faster R-CNN)',
+      'Causal DAGs',
       'Survey design & distribution',
       'Data cleaning',
       'Correlation analysis',
-      'GTFS',
-      'OpenStreetMap',
-      'Census / ACS data',
     ],
+  },
+  {
+    label: 'Data sources',
+    items: ['TxDOT CRIS', 'GTFS', 'OpenStreetMap', 'Census / ACS data'],
   },
   {
     label: 'Programming',
     items: [
       'Python',
+      'PyTorch',
       'JavaScript',
       'Java',
       'C++',
@@ -79,6 +88,10 @@ export const skills: SkillGroup[] = [
       'Human-centered design',
     ],
   },
+  {
+    label: 'Languages',
+    items: ['English (native)', 'Dutch (intermediate)', 'Mandarin'],
+  },
 ];
 
 export type Experience = {
@@ -91,13 +104,14 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    org: 'University of Houston',
+    org: 'University of Houston Honors College & HPE Data Science Institute',
     role: 'Pharis Fellow',
     dates: 'May 2026 – Present',
     location: 'Houston, TX',
     notes: [
-      // TODO: replace with a 1–2 line description of the Pharis Fellowship.
-      'Selected for the Pharis Fellowship at the University of Houston.',
+      'Built Vision Zero Houston, a public citywide traffic-safety dashboard, in partnership with the office of Council Member Joseph Panzarella (District C): 421,000+ state crash records across 66,900 street segments, explorable by street, district, neighborhood, travel mode, and time.',
+      'Developed a proactive street-design risk model (negative binomial regression with computer-vision features from street imagery) that captured 51% of held-out severe crashes vs 46% for the City’s High Injury Network at matched mileage.',
+      'Identified roughly 300 miles of high-risk streets missing from the City’s official network; sole-authored a paper submitted to the Transportation Research Board (TRB) 2027 Annual Meeting.',
     ],
   },
   {
@@ -130,16 +144,6 @@ export const experience: Experience[] = [
       'Collaborated with professionals at TechConnect Fairs; earned Apple Teacher certification.',
     ],
   },
-  {
-    org: 'University of Houston',
-    role: 'Desk Assistant',
-    dates: 'Oct 2023 – Mar 2024',
-    location: 'Houston, TX',
-    notes: [
-      'Ran front-desk operations for a residence hall, including resident check-ins and check-outs.',
-      'Supported residents, staff, and visitors with day-to-day needs.',
-    ],
-  },
 ];
 
 export type Leadership = {
@@ -153,7 +157,7 @@ export type Leadership = {
 export const leadership: Leadership[] = [
   {
     org: 'CEA CAPA',
-    role: 'Alumni Ambassador · Featured Storyteller',
+    role: 'Alumni Ambassador · Featured National Storyteller',
     dates: 'Feb 2026',
     note: 'Published a featured narrative on Dutch cycling infrastructure and study abroad for The Forum Annual Conference.',
     link: { href: '/writing/cea-transformation.jpg', label: 'Read “Transformation”' },
@@ -172,9 +176,9 @@ export const leadership: Leadership[] = [
   },
   {
     org: 'BikeHouston',
-    role: 'Data Team Dashboard Developer',
-    dates: 'Jan 2024 – Aug 2024',
-    note: 'Helped build a data-visualization dashboard mapping cycling infrastructure and crashes across Houston.',
+    role: 'GearShifter Advocate & Volunteer',
+    dates: 'Jan 2024 – Present',
+    note: 'Advocate for safer cycling infrastructure across Houston; helped build a data-visualization dashboard mapping cycling infrastructure and crashes.',
   },
   {
     org: 'CougarCS',
@@ -196,12 +200,34 @@ export const leadership: Leadership[] = [
   },
 ];
 
+export type Publication = {
+  title: string;
+  authors: string;
+  venue: string;
+  status: string;
+  links: { href: string; label: string }[];
+};
+
+export const publications: Publication[] = [
+  {
+    title: 'Quantifying What Houston’s High Injury Network Misses with a Validated Design-Risk Model',
+    authors: 'Vincent Wren',
+    venue: 'Transportation Research Board (TRB) Annual Meeting 2027',
+    status: 'Submitted',
+    links: [
+      { href: '/research/vision-zero-trb-paper.pdf', label: 'Read the paper (PDF)' },
+      { href: 'https://wrenvin.github.io/PharisFellowshipVisionZero/vision-zero.html', label: 'Live dashboard' },
+      { href: 'https://orcid.org/0009-0002-7667-1620', label: 'ORCID' },
+    ],
+  },
+];
+
 export const education = [
   {
     org: 'University of Houston',
     detail: 'Honors B.S. Computer Science, minors in Architecture and Data & Society',
     dates: 'Expected May 2027',
-    note: 'GPA 3.7',
+    note: 'GPA 3.69',
   },
   {
     org: 'Vrije Universiteit Amsterdam',

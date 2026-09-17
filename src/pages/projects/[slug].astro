@@ -57,11 +57,13 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
                 <span class="sil">{project.stat.label}</span>
               </div>
             )}
-            {project.link && (
+            {(project.link || project.links) && (
               <p class="ext">
-                <a href={project.link.href} target="_blank" rel="noopener" class="button">
-                  {project.link.label} ↗
-                </a>
+                {[...(project.link ? [project.link] : []), ...(project.links ?? [])].map((l) => (
+                  <a href={l.href} target="_blank" rel="noopener" class="button">
+                    {l.label} ↗
+                  </a>
+                ))}
               </p>
             )}
           </div>
@@ -89,11 +91,13 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
               <ul class="highlights">
                 {project.highlights.map((h) => <li>{h}</li>)}
               </ul>
-              {project.link && (
+              {(project.link || project.links) && (
                 <p class="ext">
-                  <a href={project.link.href} target="_blank" rel="noopener" class="button">
-                    {project.link.label} ↗
-                  </a>
+                  {[...(project.link ? [project.link] : []), ...(project.links ?? [])].map((l) => (
+                    <a href={l.href} target="_blank" rel="noopener" class="button">
+                      {l.label} ↗
+                    </a>
+                  ))}
                 </p>
               )}
             </div>
@@ -291,6 +295,9 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
     margin-bottom: 0.6rem;
   }
   .ext {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
     margin-top: 2rem;
   }
   .stat-panel {

@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import Base from "../layouts/Base.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import { site, skills, experience, education, leadership } from "../data/site";
+import { site, skills, experience, education, leadership, publications } from "../data/site";
 import { featuredProjects, otherProjects } from "../data/projects";
 
 // Drop a photo at public/images/portrait.jpg and it appears in the About
@@ -97,9 +97,10 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
             Vrije Universiteit Amsterdam.
           </p>
           <p>
-            My focus has grown toward geographic information systems and urban planning, using
-            spatial data and visualization to understand transit, land use, and equity in cities,
-            with the goal of pursuing urban planning in graduate school and beyond.
+            My focus has grown toward transportation safety and urban planning: modeling crash
+            risk from street design, mapping who bears the harm, and studying how cities decide
+            which streets are dangerous. I plan to pursue urban planning in graduate school and
+            beyond.
           </p>
           <p>When I’m not working, you can usually find me riding my bike, reading, or playing cello.</p>
         </div>
@@ -165,6 +166,29 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
     </div>
   </section>
 
+  <!-- Publications -->
+  <section id="publications" class="section">
+    <div class="container">
+      <p class="eyebrow">Publications</p>
+      <h2 class="section-title">Research</h2>
+      <ul class="pub-list">
+        {publications.map((pub) => (
+          <li class="pub">
+            <p class="pub-title">{pub.title}</p>
+            <p class="pub-meta">
+              {pub.authors} · {pub.venue} · <span class="pub-status">{pub.status}</span>
+            </p>
+            <div class="pub-links">
+              {pub.links.map((l) => (
+                <a href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <!-- Leadership -->
   <section id="leadership" class="section">
     <div class="container">
@@ -200,6 +224,7 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
         <a href={`mailto:${site.email}`} class="button primary">{site.email}</a>
         <a href={site.links.linkedin} target="_blank" rel="noopener" class="button">LinkedIn</a>
         <a href={site.links.github} target="_blank" rel="noopener" class="button">GitHub</a>
+        <a href={site.links.orcid} target="_blank" rel="noopener" class="button">ORCID</a>
       </div>
     </div>
   </section>
@@ -394,6 +419,44 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
   }
   .job-notes li {
     margin-bottom: 0.25rem;
+  }
+
+  .pub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .pub {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+  .pub-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+  }
+  .pub-meta {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0 0 0.9rem;
+  }
+  .pub-status {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+  .pub-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .lead-list {

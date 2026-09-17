@@ -24,6 +24,8 @@ export type Project = {
   mapLink?: string;
   /** External link (devpost, github, live site). */
   link?: { href: string; label: string };
+  /** Additional external links when one is not enough (dashboard, paper, repo). */
+  links?: { href: string; label: string }[];
   /** Award / recognition, shown as a badge (e.g. a hackathon win). */
   award?: string;
   /** Visually spotlight this project at the top of the work grid. */
@@ -39,6 +41,57 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: 'vision-zero-houston',
+    title: 'Vision Zero Houston',
+    tool: 'Python',
+    date: 'May 2026 – Present',
+    summary:
+      'Pharis Fellowship research asking whether Houston knows where its dangerous streets are: a citywide design-risk model, a public crash dashboard, and a paper submitted to TRB 2027.',
+    description:
+      'For my Pharis Fellowship with the University of Houston Honors College and HPE Data ' +
+      'Science Institute, in partnership with the office of Council Member Joseph Panzarella ' +
+      '(District C), I built a citywide answer to one question: does Houston know where its ' +
+      'dangerous streets are? The project has two halves. The first is Vision Zero Houston, a ' +
+      'public dashboard that makes 421,679 state crash records (2016 to mid-2026) across 66,922 ' +
+      'street segments explorable by street, council district, neighborhood, travel mode, and ' +
+      'time of day, with one-click printable reports for council use. The second is a proactive ' +
+      'street-design risk model: a negative binomial crash-frequency regression, supplemented ' +
+      'with computer-vision features (SegFormer and Faster R-CNN) extracted from 59,261 street ' +
+      'images, validated spatially on held-out council districts and temporally on crashes the ' +
+      'model never saw. Frozen at the end of 2021 and graded on 2023 to mid-2026, the design ' +
+      'model captured 51% of future severe crashes versus 46% for the City’s crash-history ' +
+      'High Injury Network at matched mileage, and flagged roughly 300 miles of high-risk ' +
+      'streets missing from the official network, where 574 severe crashes later occurred. ' +
+      'Street design, not crash history alone, tells a city where harm lands next. I ' +
+      'sole-authored the resulting paper, submitted to the Transportation Research Board (TRB) ' +
+      '2027 Annual Meeting.',
+    highlights: [
+      'Built a public citywide dashboard making 421,679 crash records across 66,922 street segments explorable by street, district, neighborhood, mode, and time.',
+      'Modeled crash risk from street design: negative binomial regression plus computer-vision features (SegFormer, Faster R-CNN) from 59,261 street images.',
+      'Validated spatially and temporally: the design model captured 51% of held-out severe crashes vs 46% for the City’s High Injury Network.',
+      'Identified roughly 300 miles of high-risk streets missing from the official network, where 574 severe crashes later occurred.',
+      'Sole-authored the paper, submitted to the TRB 2027 Annual Meeting.',
+    ],
+    stat: {
+      value: '51% vs 46%',
+      label: 'of held-out severe crashes captured by the design model vs the City’s High Injury Network',
+    },
+    images: [
+      {
+        src: '/images/projects/vision-zero-hin-vs-psn.jpg',
+        alt: 'Two maps of Houston side by side: the City’s crash-based High Injury Network and this project’s design-based Proactive Safety Network, with held-out capture rates of 46% and 51%.',
+      },
+    ],
+    links: [
+      { href: 'https://wrenvin.github.io/PharisFellowshipVisionZero/vision-zero.html', label: 'Open the live dashboard' },
+      { href: '/research/vision-zero-trb-paper.pdf', label: 'Read the paper (PDF)' },
+      { href: 'https://github.com/WrenVin/PharisFellowshipVisionZero', label: 'View the code on GitHub' },
+    ],
+    spotlight: true,
+    tags: ['Python', 'Computer Vision', 'Statistics', 'Transportation Safety', 'Research'],
+    featured: true,
+  },
   {
     slug: 'bikeshare-equity-siting',
     title: 'Equitable Bike Share Station Siting',
@@ -65,7 +118,6 @@ export const projects: Project[] = [
     ],
     stat: { value: '2.65×', label: 'more residents reached than the 2021 BCycle network' },
     link: { href: '/research/bikeshare-equity-poster.pdf', label: 'View the research poster (PDF)' },
-    spotlight: true,
     tags: ['ArcGIS Pro', 'Network Analysis', 'Equity', 'Transportation', 'Research'],
     featured: true,
   },
@@ -164,7 +216,8 @@ export const projects: Project[] = [
       '(bicycles and scooters). In ArcGIS Pro, I processed the survey into a bivariate ' +
       'visualization of infrastructure performance, where library racks ran past 100% capacity ' +
       'while dormitory racks sat largely empty. The mismatch gives the university a data-backed ' +
-      'case for relocating racks from where they sit unused to where demand overflows.',
+      'case for relocating racks from where they sit unused to where demand overflows. This ' +
+      'survey now serves as the pilot for a much larger campus-wide study I am running in Fall 2026.',
     highlights: [
       'Surveyed 74 bike-rack locations with ArcGIS Field Maps at weekday peak (around noon).',
       'Recorded total capacity and real-time usage, counting both bicycles and scooters.',
@@ -410,6 +463,7 @@ export const projects: Project[] = [
 // Display order for the featured grid, most important for the portfolio first.
 // Edit this list to reorder; any featured project not listed falls to the end.
 const FEATURED_ORDER = [
+  'vision-zero-houston',
   'bikeshare-equity-siting',
   'commute-civic-engagement',
   'downtown-land-use',
