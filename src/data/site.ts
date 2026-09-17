@@ -89,7 +89,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: 'Languages',
-    items: ['English (native)', 'Dutch (intermediate)', 'Mandarin'],
+    items: ['English (native)', 'Dutch (intermediate)'],
   },
 ];
 

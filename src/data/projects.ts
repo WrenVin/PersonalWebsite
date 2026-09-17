@@ -47,7 +47,7 @@ export const projects: Project[] = [
     tool: 'Python',
     date: 'May 2026 – Present',
     summary:
-      'Pharis Fellowship research asking whether Houston knows where its dangerous streets are: a citywide design-risk model, a public crash dashboard, and a paper submitted to TRB 2027.',
+      'Pharis Fellowship research asking whether Houston knows where its dangerous streets are.',
     description:
       'For my Pharis Fellowship with the University of Houston Honors College and HPE Data ' +
       'Science Institute, in partnership with the office of Council Member Joseph Panzarella ' +
