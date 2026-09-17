@@ -217,9 +217,6 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
     <div class="container contact-inner">
       <p class="eyebrow">Contact</p>
       <h2 class="section-title">Let’s talk</h2>
-      <p class="contact-text">
-        I’m always glad to talk about cities, maps, and data. The best way to reach me is email.
-      </p>
       <div class="hero-actions">
         <a href={`mailto:${site.email}`} class="button primary">{site.email}</a>
         <a href={site.links.linkedin} target="_blank" rel="noopener" class="button">LinkedIn</a>
@@ -516,11 +513,6 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
   }
   .contact-inner .eyebrow {
     margin-inline: auto;
-  }
-  .contact-text {
-    color: var(--text-muted);
-    max-width: 46ch;
-    margin: 0 auto 2rem;
   }
   .contact-inner .hero-actions {
     justify-content: center;
