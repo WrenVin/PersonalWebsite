@@ -44,7 +44,6 @@ export const skills: SkillGroup[] = [
     label: 'Statistics & machine learning',
     items: [
       'Negative binomial regression',
-      'Spatial statistics (Moran’s I, Getis-Ord)',
       'Machine learning',
       'Computer vision (SegFormer, Faster R-CNN)',
       'Causal DAGs',
@@ -109,7 +108,7 @@ export const experience: Experience[] = [
     dates: 'May 2026 – Present',
     location: 'Houston, TX',
     notes: [
-      'Built Vision Zero Houston, a public citywide traffic-safety dashboard, in partnership with the office of Council Member Joseph Panzarella (District C): 421,000+ state crash records across 66,900 street segments, explorable by street, district, neighborhood, travel mode, and time.',
+      'Built Vision Zero Houston, a public citywide traffic-safety dashboard, in partnership with the office of Council Member Joseph Panzarella (District C): 421,000+ state crash records across 66,900 street segments, explorable by street, district, neighborhood, and travel mode.',
       'Developed a proactive street-design risk model (negative binomial regression with computer-vision features from street imagery) that captured 51% of held-out severe crashes vs 46% for the City’s High Injury Network at matched mileage.',
       'Identified roughly 300 miles of high-risk streets missing from the City’s official network; sole-authored a paper submitted to the Transportation Research Board (TRB) 2027 Annual Meeting.',
     ],
@@ -213,7 +212,7 @@ export const publications: Publication[] = [
     title: 'Quantifying What Houston’s High Injury Network Misses with a Validated Design-Risk Model',
     authors: 'Vincent Wren',
     venue: 'Transportation Research Board (TRB) Annual Meeting 2027',
-    status: 'Submitted',
+    status: 'Currently under review',
     links: [
       { href: '/research/vision-zero-trb-paper.pdf', label: 'Read the paper (PDF)' },
       { href: 'https://wrenvin.github.io/PharisFellowshipVisionZero/vision-zero.html', label: 'Live dashboard' },

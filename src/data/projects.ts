@@ -74,8 +74,8 @@ export const projects: Project[] = [
       'Sole-authored the paper, submitted to the TRB 2027 Annual Meeting.',
     ],
     stat: {
-      value: '51% vs 46%',
-      label: 'of held-out severe crashes captured by the design model vs the City’s High Injury Network',
+      value: '51%',
+      label: 'of future severe crashes captured, vs 46% for the City’s High Injury Network',
     },
     images: [
       {
