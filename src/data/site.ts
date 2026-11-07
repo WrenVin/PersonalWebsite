@@ -38,6 +38,10 @@ export const skills: SkillGroup[] = [
       'GeoAI',
       'Kepler.gl',
       'Georeferencing',
+      'Network screening (HSM)',
+      'Crash cost analysis',
+      'Location-allocation',
+      'arcpy / ArcGIS Pro map series',
     ],
   },
   {
@@ -103,14 +107,29 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    org: 'University of Houston Honors College & HPE Data Science Institute',
-    role: 'Pharis Fellow',
-    dates: 'May 2026 – Present',
+    org: 'Farm&City (Vision Zero Texas)',
+    role: 'Crash Data and Mapping Intern',
+    dates: 'Sep 2026 – Present',
+    location: 'Austin, TX (Remote)',
+    notes: [
+      'Ranked Texas’s most dangerous roads statewide, a safety counterpart to TxDOT’s Top 100 Congested Roadways list.',
+      'Screened 2.76M crash records on 82,000 miles of road with HSM network screening, ranking 5,960 corridors by crash cost.',
+      'Automated 181 print-ready map pages, one for each Texas House and Senate district, with ArcGIS Pro and arcpy.',
+      'Found that 10% of major-road miles carry 61% of the state’s traffic fatalities and serious injuries.',
+      'Presented the findings to staff from 15 legislative offices at a Texas Capitol traffic safety briefing (Nov. 5, 2026).',
+    ],
+  },
+  {
+    org: 'Pharis Fellowship · UH Honors College & HPE Data Science Institute',
+    role: 'Research Fellow',
+    dates: 'May 2026 – Aug 2026',
     location: 'Houston, TX',
     notes: [
-      'Built Vision Zero Houston, a public citywide traffic-safety dashboard, in partnership with the office of Council Member Joseph Panzarella (District C): 421,000+ state crash records across 66,900 street segments, explorable by street, district, neighborhood, and travel mode.',
+      'Built and maintain Vision Zero Houston, a public citywide traffic-safety dashboard making 421,000+ state crash records across 66,900 street segments explorable by street, district, neighborhood, and travel mode, with Council Member Panzarella’s office.',
+      'Quantified crash concentration: half of Houston’s traffic deaths and serious injuries occur on 2% of street-miles.',
       'Developed a proactive street-design risk model (negative binomial regression with computer-vision features from street imagery) that captured 51% of held-out severe crashes vs 46% for the City’s High Injury Network at matched mileage.',
-      'Identified roughly 300 miles of high-risk streets missing from the City’s official network; sole-authored a paper submitted to the Transportation Research Board (TRB) 2027 Annual Meeting.',
+      'Identified roughly 300 miles of high-risk streets missing from the City’s official network.',
+      'Sole author of a paper accepted for presentation at the TRB 2027 Annual Meeting.',
     ],
   },
   {
@@ -121,6 +140,8 @@ export const experience: Experience[] = [
     notes: [
       'Led 36 students through a year-long human-centered design invention program.',
       'Mentored teams through the full engineering design process, from research to pitch.',
+      'Teams built inventions for real users.',
+      'Earned the Project Invent Pioneer Award for program leadership; student teams won $1,500 in prizes.',
     ],
   },
   {
@@ -180,6 +201,12 @@ export const leadership: Leadership[] = [
     note: 'Advocate for safer cycling infrastructure across Houston; helped build a data-visualization dashboard mapping cycling infrastructure and crashes.',
   },
   {
+    org: 'Gehl',
+    role: 'Volunteer Field Data Collector',
+    dates: 'Oct 2024',
+    note: 'Collected observational data for the Downtown Houston Public Life Survey.',
+  },
+  {
     org: 'CougarCS',
     role: 'Tutor',
     dates: 'Aug 2023 – Aug 2024',
@@ -210,9 +237,9 @@ export type Publication = {
 export const publications: Publication[] = [
   {
     title: 'Quantifying What Houston’s High Injury Network Misses with a Validated Design-Risk Model',
-    authors: 'Vincent Wren',
-    venue: 'Transportation Research Board (TRB) Annual Meeting 2027',
-    status: 'Currently under review',
+    authors: 'Vincent Wren (sole author)',
+    venue: 'Transportation Research Board 106th Annual Meeting, Washington, D.C., Jan. 2027',
+    status: 'Accepted for presentation',
     links: [
       { href: '/research/vision-zero-trb-paper.pdf', label: 'Read the paper (PDF)' },
       { href: 'https://wrenvin.github.io/PharisFellowshipVisionZero/vision-zero.html', label: 'Live dashboard' },
@@ -224,7 +251,7 @@ export const publications: Publication[] = [
 export const education = [
   {
     org: 'University of Houston',
-    detail: 'Honors B.S. Computer Science, minors in Architecture and Data & Society',
+    detail: 'Honors B.S. in Computer Science, minors in Architecture and Data & Society',
     dates: 'Expected May 2027',
     note: 'GPA 3.69',
   },
@@ -234,4 +261,11 @@ export const education = [
     dates: 'Jan 2025 – Jun 2025',
     note: '',
   },
+];
+
+export const honors = [
+  'Provost Undergraduate Research Scholarship',
+  'Houston Livestock Show and Rodeo Scholarship',
+  'Pharis Fellowship',
+  'Project Invent Pioneer Award',
 ];

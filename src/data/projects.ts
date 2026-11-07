@@ -45,7 +45,7 @@ export const projects: Project[] = [
     slug: 'vision-zero-houston',
     title: 'Vision Zero Houston',
     tool: 'Python',
-    date: 'May 2026 – Present',
+    date: 'May 2026 – Aug 2026; dashboard maintained since',
     summary:
       'Pharis Fellowship research asking whether Houston knows where its dangerous streets are.',
     description:
@@ -63,15 +63,16 @@ export const projects: Project[] = [
       'model captured 51% of future severe crashes versus 46% for the City’s crash-history ' +
       'High Injury Network at matched mileage, and flagged roughly 300 miles of high-risk ' +
       'streets missing from the official network, where 574 severe crashes later occurred. ' +
-      'Street design, not crash history alone, tells a city where harm lands next. I ' +
-      'sole-authored the resulting paper, submitted to the Transportation Research Board (TRB) ' +
-      '2027 Annual Meeting.',
+      'Street design, not crash history alone, tells a city where harm lands next. I am the ' +
+      'sole author of the resulting paper, accepted for presentation at the Transportation ' +
+      'Research Board (TRB) 2027 Annual Meeting. The fellowship ended in August 2026, and I ' +
+      'continue to maintain the dashboard.',
     highlights: [
-      'Built a public citywide dashboard making 421,679 crash records across 66,922 street segments explorable by street, district, neighborhood, mode, and time.',
+      'Built and maintain a public citywide dashboard making 421,679 crash records across 66,922 street segments explorable by street, district, neighborhood, mode, and time.',
       'Modeled crash risk from street design: negative binomial regression plus computer-vision features (SegFormer, Faster R-CNN) from 59,261 street images.',
       'Validated spatially and temporally: the design model captured 51% of held-out severe crashes vs 46% for the City’s High Injury Network.',
       'Identified roughly 300 miles of high-risk streets missing from the official network, where 574 severe crashes later occurred.',
-      'Sole-authored the paper, submitted to the TRB 2027 Annual Meeting.',
+      'Sole author of a paper accepted for presentation at the TRB 2027 Annual Meeting.',
     ],
     stat: {
       value: '51%',
@@ -164,8 +165,7 @@ export const projects: Project[] = [
       'map of where frequency upgrades would reach the most underserved riders, a starting point ' +
       'for prioritizing METRO investment.',
     highlights: [
-      'Mapped the METRO high-frequency network from GTFS data to identify service corridors.',
-      'Computed accessibility by overlaying 0.25-mile walk buffers on block-group population.',
+      'Mapped METRO’s frequent network from GTFS with 0.25-mile walksheds over Census Block Group population to find access gaps.',
       'Visualized coverage gaps to surface disparities in access to frequent transit.',
     ],
     images: [
@@ -187,15 +187,14 @@ export const projects: Project[] = [
       'vehicle infrastructure versus pedestrian infrastructure. Combining official data from the ' +
       'City of Houston, H-GAC, and OpenStreetMap in ArcGIS Pro, I built a 3D scene to visualize ' +
       'the vertical scale of parking and ran a land-use analysis estimating the area of four ' +
-      'components: roads, parking, sidewalks, and parks. An estimated 71.95% of downtown’s land ' +
-      'serves car infrastructure versus 9.26% for pedestrians, meaning roughly eight times more ' +
-      'land goes to moving and storing vehicles than to the pedestrian realm and public green space.',
+      'components: roads, parking, sidewalks, and parks. An estimated 71.9% of downtown land serves ' +
+      'vehicles vs. 9.2% for pedestrians.',
     highlights: [
       'Combined City of Houston, H-GAC, and OpenStreetMap data in ArcGIS Pro.',
       'Built a 3D scene of parking plus a four-part land-use analysis (roads, parking, sidewalks, parks).',
-      'Found 71.95% of downtown serves vehicles vs. 9.26% for pedestrians, roughly an 8x imbalance.',
+      'Found that 71.9% of downtown land serves vehicles vs. 9.2% for pedestrians.',
     ],
-    stat: { value: '8×', label: 'more downtown land for cars than for people' },
+    stat: { value: '71.9%', label: 'of downtown land serves vehicles, vs. 9.2% for pedestrians' },
     webmapId: '5929c6f281d04567b0585d9c5c820ce1',
     tags: ['ArcGIS Pro', 'Land Use', 'OSM', 'Houston'],
     featured: true,

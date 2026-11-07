@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import Base from "../layouts/Base.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import { site, skills, experience, education, leadership, publications } from "../data/site";
+import { site, skills, experience, education, honors, leadership, publications } from "../data/site";
 import { featuredProjects, otherProjects } from "../data/projects";
 
 // Drop a photo at public/images/portrait.jpg and it appears in the About
@@ -99,8 +99,10 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
           <p>
             My focus has grown toward transportation safety and urban planning: modeling crash
             risk from street design, mapping who bears the harm, and studying how cities decide
-            which streets are dangerous. I plan to pursue urban planning in graduate school and
-            beyond.
+            which streets are dangerous. I’m currently a crash data and mapping intern at
+            Farm&amp;City (Vision Zero Texas), where I ranked Texas’s most dangerous roads statewide
+            and presented the findings at a Texas Capitol traffic safety briefing. I plan to pursue
+            urban planning in graduate school and beyond.
           </p>
           <p>When I’m not working, you can usually find me riding my bike, reading, or playing cello.</p>
         </div>
@@ -122,6 +124,12 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
                 <p class="edu-meta">{ed.dates}{ed.note ? ` · ${ed.note}` : ""}</p>
               </div>
             ))}
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">Honors &amp; awards</h3>
+            <ul class="honors">
+              {honors.map((honor) => <li>{honor}</li>)}
+            </ul>
           </div>
         </aside>
       </div>
@@ -155,7 +163,7 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
                 <span class="job-role">{job.role}</span>
                 <span class="job-org">{job.org}</span>
               </div>
-              <span class="job-dates">{job.dates}</span>
+              <span class="job-dates">{job.dates}{job.location ? ` · ${job.location}` : ""}</span>
             </div>
             <ul class="job-notes">
               {job.notes.map((n) => <li>{n}</li>)}
@@ -169,8 +177,8 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
   <!-- Publications -->
   <section id="publications" class="section">
     <div class="container">
-      <p class="eyebrow">Publications</p>
-      <h2 class="section-title">Research</h2>
+      <p class="eyebrow">Research</p>
+      <h2 class="section-title">Papers &amp; presentations</h2>
       <ul class="pub-list">
         {publications.map((pub) => (
           <li class="pub">
@@ -373,6 +381,16 @@ const hasPortrait = fs.existsSync(new URL("../../public/images/portrait.jpg", im
     font-size: 0.82rem;
     color: var(--text-faint);
     font-family: var(--font-mono);
+  }
+
+  .honors {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .honors li {
+    margin-bottom: 0.3rem;
   }
 
   .timeline {
