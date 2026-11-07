@@ -3,6 +3,8 @@ export type Project = {
   title: string;
   tool: string;
   date: string;
+  /** Extra context for the date, shown on the project page but not the card. */
+  dateNote?: string;
   /** Short, neutral one-liner used on cards. */
   summary: string;
   /** Longer description shown on the project page. */
@@ -45,7 +47,8 @@ export const projects: Project[] = [
     slug: 'vision-zero-houston',
     title: 'Vision Zero Houston',
     tool: 'Python',
-    date: 'May 2026 – Aug 2026; dashboard maintained since',
+    date: 'May 2026 – Aug 2026',
+    dateNote: 'dashboard maintained since',
     summary:
       'Pharis Fellowship research asking whether Houston knows where its dangerous streets are.',
     description:

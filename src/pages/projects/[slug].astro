@@ -28,7 +28,7 @@ const showMap = !hasImages && !!(project.webmapId || project.mapEmbed || project
       <header class="proj-head">
         <div class="meta">
           <span class="tool">{project.tool}</span>
-          <span class="date">{project.date}</span>
+          <span class="date">{project.date}{project.dateNote ? `; ${project.dateNote}` : ""}</span>
         </div>
         <h1 class="proj-title">{project.title}</h1>
         <p class="lede">{project.summary}</p>

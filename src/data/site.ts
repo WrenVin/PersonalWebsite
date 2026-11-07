@@ -134,22 +134,13 @@ export const experience: Experience[] = [
   },
   {
     org: 'Lazarus Energy',
-    role: 'Project Invent Manager',
-    dates: 'Jul 2025 – May 2026',
+    role: 'Graduate Intern',
+    dates: 'Oct 2023 – May 2026',
     location: 'Houston, TX',
     notes: [
-      'Led 36 students through a year-long human-centered design invention program.',
+      'Led 36 students through Project Invent, a year-long human-centered design program, as teams built inventions for real users.',
       'Mentored teams through the full engineering design process, from research to pitch.',
-      'Teams built inventions for real users.',
       'Earned the Project Invent Pioneer Award for program leadership; student teams won $1,500 in prizes.',
-    ],
-  },
-  {
-    org: 'Lazarus Energy',
-    role: 'IT Intern',
-    dates: 'Oct 2023 – Jan 2025',
-    location: 'Houston, TX',
-    notes: [
       'Developed a real-time data management web app to improve scheduling efficiency.',
       'Automated employee hour tracking using the Google Sheets API.',
     ],
